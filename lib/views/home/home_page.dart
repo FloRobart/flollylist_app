@@ -1,0 +1,85 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../controllers/auth_controller.dart';
+import '../../controllers/data_controller.dart';
+import '../profile/profile_page.dart';
+import 'person_details_page.dart';
+import '../widgets/app_dialogs.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<DataController>(context, listen: false).initData();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final dataController = Provider.of<DataController>(context);
+    final peoples = dataController.peoples;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('FlollyList'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.account_circle),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const ProfilePage()),
+              );
+            },
+          )
+        ],
+      ),
+      body: peoples.isEmpty
+          ? const Center(child: Text("Aucune personne dans votre liste.\nAjoutez-en une !"))
+          : ListView.builder(
+              itemCount: peoples.length,
+              itemBuilder: (context, index) {
+                final person = peoples[index];
+                return Card(
+                  margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: ListTile(
+                    leading: CircleAvatar(child: Text(person.name[0].toUpperCase())),
+                    title: Text(person.name),
+                    subtitle: Text(person.description ?? 'Pas de description'),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => PersonDetailsPage(person: person),
+                        ),
+                      );
+                    },
+                  ),
+                );
+              },
+            ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          final data = await showDialog<Map<String, dynamic>>(
+            context: context,
+            builder: (_) => const PeopleDialog(),
+          );
+
+          if (data != null && context.mounted) {
+            await Provider.of<DataController>(context, listen: false).addPeople(data);
+          }
+        },
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
