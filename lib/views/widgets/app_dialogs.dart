@@ -13,26 +13,35 @@ class PeopleDialog extends StatefulWidget {
 
 class _PeopleDialogState extends State<PeopleDialog> {
   final _formKey = GlobalKey<FormState>();
-  late TextEditingController _nameController;
-  late TextEditingController _descController;
-  late TextEditingController _yearController;
-  late TextEditingController _linkController;
+  late TextEditingController _firstNameController;
+  late TextEditingController _lastNameController;
+  late TextEditingController _dobController;
+  String? _dobValue; // stocke la date complète en ISO (pour l'envoi)
 
   @override
   void initState() {
     super.initState();
-    _nameController = TextEditingController(text: widget.people?.name ?? '');
-    _descController = TextEditingController(text: widget.people?.description ?? '');
-    _yearController = TextEditingController(text: widget.people?.year?.toString() ?? '');
-    _linkController = TextEditingController(text: widget.people?.link ?? '');
+    _firstNameController = TextEditingController(text: widget.people?.firstName ?? '');
+    _lastNameController = TextEditingController(text: widget.people?.lastName ?? '');
+    // Préparer l'affichage et la valeur ISO si disponible
+    if (widget.people?.dateOfBirth != null) {
+      _dobValue = widget.people!.dateOfBirth;
+      final parsed = DateTime.tryParse(widget.people!.dateOfBirth!);
+      if (parsed != null) {
+        _dobController = TextEditingController(text: '${parsed.day}/${parsed.month}/${parsed.year}');
+      } else {
+        _dobController = TextEditingController(text: widget.people!.dateOfBirth!);
+      }
+    } else {
+      _dobController = TextEditingController(text: '');
+    }
   }
 
   @override
   void dispose() {
-    _nameController.dispose();
-    _descController.dispose();
-    _yearController.dispose();
-    _linkController.dispose();
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _dobController.dispose();
     super.dispose();
   }
 
@@ -47,22 +56,37 @@ class _PeopleDialogState extends State<PeopleDialog> {
             mainAxisSize: MainAxisSize.min,
             children: [
               TextFormField(
-                controller: _nameController,
-                decoration: const InputDecoration(labelText: 'Nom *'),
+                controller: _firstNameController,
+                decoration: const InputDecoration(labelText: 'Prénom *'),
                 validator: (v) => v == null || v.isEmpty ? 'Requis' : null,
               ),
               TextFormField(
-                controller: _descController,
-                decoration: const InputDecoration(labelText: 'Description'),
+                controller: _lastNameController,
+                decoration: const InputDecoration(labelText: 'Nom (facultatif)'),
               ),
               TextFormField(
-                controller: _yearController,
-                decoration: const InputDecoration(labelText: 'Année (ex: Naissance)'),
-                keyboardType: TextInputType.number,
-              ),
-              TextFormField(
-                controller: _linkController,
-                decoration: const InputDecoration(labelText: 'Lien (Photo, etc.)'),
+                controller: _dobController,
+                decoration: const InputDecoration(labelText: 'Année de naissance (sélectionnez)'),
+                readOnly: true,
+                onTap: () async {
+                  DateTime initial = DateTime.now();
+                  if (widget.people?.dateOfBirth != null) {
+                    final parsed = DateTime.tryParse(widget.people!.dateOfBirth!);
+                    if (parsed != null) initial = parsed;
+                  }
+                  final picked = await showDatePicker(
+                    context: context,
+                    initialDate: initial,
+                    firstDate: DateTime(1900),
+                    lastDate: DateTime.now(),
+                  );
+                  if (picked != null) {
+                    setState(() {
+                      _dobValue = picked.toIso8601String();
+                      _dobController.text = '${picked.day}/${picked.month}/${picked.year}';
+                    });
+                  }
+                },
               ),
             ],
           ),
@@ -75,10 +99,9 @@ class _PeopleDialogState extends State<PeopleDialog> {
             if (_formKey.currentState!.validate()) {
               // On retourne une Map avec les données
               Navigator.pop(context, {
-                'name': _nameController.text,
-                'description': _descController.text.isEmpty ? null : _descController.text,
-                'year': _yearController.text.isEmpty ? null : int.tryParse(_yearController.text),
-                'link': _linkController.text.isEmpty ? null : _linkController.text,
+                'first_name': _firstNameController.text,
+                'last_name': _lastNameController.text.isEmpty ? null : _lastNameController.text,
+                'date_of_birth': _dobValue,
               });
             }
           },
@@ -160,7 +183,7 @@ class _GiftDialogState extends State<GiftDialog> {
                 'description': _descController.text.isEmpty ? null : _descController.text,
                 'year': _yearController.text.isEmpty ? null : int.tryParse(_yearController.text),
                 'link': _linkController.text.isEmpty ? null : _linkController.text,
-                'person_id': widget.personId ?? widget.gift?.personId,
+                'people_id': widget.personId ?? widget.gift?.personId,
               });
             }
           },

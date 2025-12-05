@@ -25,7 +25,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final dataController = Provider.of<DataController>(context);
-    final peoples = dataController.peoples;
+    // Make a defensive copy to avoid concurrent mutation issues
+    final peoples = List.of(dataController.peoples);
 
     return Scaffold(
       appBar: AppBar(
@@ -51,9 +52,23 @@ class _HomePageState extends State<HomePage> {
                 return Card(
                   margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: ListTile(
-                    leading: CircleAvatar(child: Text(person.name[0].toUpperCase())),
-                    title: Text(person.name),
-                    subtitle: Text(person.description ?? 'Pas de description'),
+                    leading: CircleAvatar(child: Text((person.firstName.isNotEmpty ? person.firstName[0] : '?').toUpperCase())),
+                    title: Text(
+                      person.lastName != null && person.lastName!.isNotEmpty
+                        ? '${person.firstName} ${person.lastName}'
+                        : person.firstName,
+                    ),
+                    subtitle: person.dateOfBirth != null
+                        ? (() {
+                            final parsed = DateTime.tryParse(person.dateOfBirth!);
+                            if (parsed != null) {
+                              return Text('Né(e): ${parsed.day}/${parsed.month}/${parsed.year}');
+                            }
+                            return Text('Date: ${person.dateOfBirth}');
+                          })()
+                        : (person.lastName != null && person.lastName!.isNotEmpty
+                            ? Text(person.lastName!)
+                            : const Text("Pas d'informations")),
                     trailing: const Icon(Icons.chevron_right),
                     onTap: () {
                       Navigator.push(

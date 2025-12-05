@@ -24,7 +24,7 @@ class Gift {
       description: json['gift_description'],
       year: json['gift_year'],
       link: json['link'],
-      personId: json['person_id'],
+      personId: json['people_id'],
       userId: json['user_id'],
     );
   }
@@ -36,7 +36,7 @@ class Gift {
       'gift_description': description,
       'gift_year': year,
       'link': link,
-      'person_id': personId,
+      'people_id': personId,
       'user_id': userId,
     };
   }

@@ -25,7 +25,7 @@ class PersonDetailsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(person.name),
+        title: Text(person.firstName + (person.lastName != null ? ' ${person.lastName}' : '')),
         actions: [
           IconButton(
             icon: const Icon(Icons.edit),
@@ -127,7 +127,7 @@ class PersonDetailsPage extends StatelessWidget {
                                         'description': gift.description,
                                         'year': gift.year,
                                         'link': gift.link,
-                                        'person_id': gift.personId,
+                                        'people_id': gift.personId,
                                       };
 
                                       // 2. On utilise la méthode d'ajout existante

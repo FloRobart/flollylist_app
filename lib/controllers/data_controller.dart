@@ -86,11 +86,9 @@ class DataController with ChangeNotifier {
 
     // Mapping pour l'API (basé sur peoples.schema.ts)
     final apiBody = {
-      'people_name': data['name'],
-      'people_description': data['description'],
-      'people_year': data['year'],
-      'link': data['link'],
-      'person_id': 1, // Valeur dummy requise par le schéma Zod s'il est strict, sinon à ignorer
+      'first_name': data['first_name'],
+      'last_name': data['last_name'],
+      'date_of_birth': data['date_of_birth'],
     };
 
     try {
@@ -112,11 +110,10 @@ class DataController with ChangeNotifier {
     if (jwt == null) return false;
 
     final apiBody = {
-      'people_name': data['name'],
-      'people_description': data['description'],
-      'people_year': data['year'],
-      'link': data['link'],
-      'person_id': 1, 
+      'first_name': data['first_name'],
+      'last_name': data['last_name'],
+      'date_of_birth': data['date_of_birth'],
+      'user_id': 1,
     };
 
     try {
@@ -180,7 +177,7 @@ class DataController with ChangeNotifier {
       'gift_description': data['description'],
       'gift_year': data['year'],
       'link': data['link'],
-      'person_id': data['person_id'],
+      'people_id': data['people_id'],
     };
 
     try {
@@ -212,7 +209,7 @@ class DataController with ChangeNotifier {
       'gift_description': data['description'],
       'gift_year': data['year'],
       'link': data['link'],
-      'person_id': data['person_id'],
+      'people_id': data['people_id'],
     };
 
     try {

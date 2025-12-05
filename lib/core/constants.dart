@@ -10,6 +10,6 @@ class ApiConstants {
   static const String me = '$baseUrlAuth/users';
   
   // Endpoints Data
-  static const String peoples = '$baseUrlData/people';
+  static const String peoples = '$baseUrlData/peoples';
   static const String gifts = '$baseUrlData/gifts';
 }
