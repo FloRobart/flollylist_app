@@ -71,7 +71,7 @@ class AuthController with ChangeNotifier {
         body: jsonEncode(body),
       );
 
-      if (response.statusCode == 200) {
+      if (response.statusCode >= 200 && response.statusCode < 300) {
         // Enregistrement de l'email pour usage futur
         await _storage.saveEmail(email);
         _currentUserEmail = email;
@@ -161,7 +161,15 @@ class AuthController with ChangeNotifier {
         final data = jsonDecode(response.body);
         _userProfile = UserProfile.fromJson(data);
         // On met à jour l'email stocké localement au cas où
-        await _storage.saveEmail(_userProfile!.email); 
+        await _storage.saveEmail(_userProfile!.email);
+      } else if (response.statusCode == 401 || response.statusCode == 404) {
+        // Si l'API indique que l'utilisateur n'existe pas ou n'est pas autorisé,
+        // on force la déconnexion locale (suppression du JWT) pour forcer la
+        // redirection vers la page de login côté UI.
+        await logout();
+      } else {
+        // Pour les autres erreurs, on se contente de logger
+        print("Erreur fetchProfile (status ${response.statusCode}): ${response.body}");
       }
     } catch (e) {
       print("Erreur fetchProfile: $e");

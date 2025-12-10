@@ -187,7 +187,7 @@ class DataController with ChangeNotifier {
         body: jsonEncode(apiBody),
       );
 
-      if (response.statusCode == 201) {
+      if (response.statusCode >= 200 && response.statusCode < 300) {
         final newGift = Gift.fromJson(jsonDecode(response.body));
         _gifts.add(newGift);
         await _storage.saveGifts(_gifts);

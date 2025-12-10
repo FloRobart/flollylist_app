@@ -1,7 +1,7 @@
 class ApiConstants {
   // Remplacez par l'URL de votre API locale ou distante
-  static const String baseUrlAuth = 'http://localhost:26001'; 
-  static const String baseUrlData = 'http://localhost:26004';
+  static const String baseUrlAuth = 'http://192.168.1.91:26001'; 
+  static const String baseUrlData = 'http://192.168.1.91:26004';
   
   // Endpoints Users
   static const String loginRequest = '$baseUrlAuth/users/login/request';

@@ -12,6 +12,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  late VoidCallback _authListener;
   @override
   void initState() {
     super.initState();
@@ -19,6 +20,29 @@ class _ProfilePageState extends State<ProfilePage> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<AuthController>(context, listen: false).fetchProfile();
     });
+
+    // Écoute les changements d'auth pour rediriger automatiquement si on est déconnecté
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final auth = Provider.of<AuthController>(context, listen: false);
+      _authListener = () {
+        if (!mounted) return;
+        if (!auth.isAuthenticated) {
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (_) => const LoginPage()),
+            (route) => false,
+          );
+        }
+      };
+      auth.addListener(_authListener);
+    });
+  }
+
+  @override
+  void dispose() {
+    try {
+      Provider.of<AuthController>(context, listen: false).removeListener(_authListener);
+    } catch (_) {}
+    super.dispose();
   }
 
   void _showEditPseudoDialog(BuildContext context, String currentPseudo) {
