@@ -8,6 +8,7 @@ class StorageService {
   static const String _keyEmail = 'auth_email';
   static const String _keyPeoples = 'data_peoples';
   static const String _keyGifts = 'data_gifts';
+  static const String _keyThemeMode = 'app_theme_mode';
 
   Future<void> saveJwt(String token) async {
     final prefs = await SharedPreferences.getInstance();
@@ -62,5 +63,15 @@ class StorageService {
     if (encoded == null) return [];
     final List<dynamic> decoded = jsonDecode(encoded);
     return decoded.map((e) => Gift.fromJson(e)).toList();
+  }
+
+  Future<void> saveThemeMode(String mode) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_keyThemeMode, mode);
+  }
+
+  Future<String?> getThemeMode() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(_keyThemeMode);
   }
 }
