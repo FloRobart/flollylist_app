@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
         leading: Padding(
           padding: const EdgeInsets.only(left: 12.0),
           child: Image.asset(
-            'assets/images/flollylist_icon-72.png',
+            'assets/images/flollylist_icon-144.png',
             width: 36,
             height: 36,
             fit: BoxFit.contain,
