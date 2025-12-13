@@ -129,7 +129,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       // Avatar
                       CircleAvatar(
                         radius: 50,
-                        backgroundColor: Theme.of(context).primaryColor,
+                        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
                         child: Text(
                           user.pseudo.isNotEmpty ? user.pseudo[0].toUpperCase() : '?',
                           style: const TextStyle(fontSize: 40, color: Colors.white),
