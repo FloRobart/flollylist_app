@@ -146,17 +146,74 @@ class PersonDetailsPage extends StatelessWidget {
                   );
                 },
 
-                trailing: IconButton(
-                  icon: const Icon(Icons.edit),
-                  onPressed: () async {
-                    final data = await showDialog<Map<String, dynamic>>(
-                      context: context,
-                      builder: (_) => GiftDialog(gift: gift),
-                    );
-                    if (data != null && context.mounted) {
-                      await Provider.of<DataController>(context, listen: false).updateGift(gift.id, data);
-                    }
-                  },
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.edit),
+                      onPressed: () async {
+                        final data = await showDialog<Map<String, dynamic>>(
+                          context: context,
+                          builder: (_) => GiftDialog(gift: gift),
+                        );
+                        if (data != null && context.mounted) {
+                          await Provider.of<DataController>(context, listen: false).updateGift(gift.id, data);
+                        }
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (ctx) => AlertDialog(
+                            title: const Text('Supprimer ce cadeau ?'),
+                            content: Text('Voulez-vous vraiment supprimer "${gift.name}" ?'),
+                            actions: [
+                              TextButton(
+                                onPressed: () => Navigator.pop(ctx),
+                                child: const Text('Non'),
+                              ),
+                              TextButton(
+                                onPressed: () async {
+                                  Navigator.pop(ctx);
+
+                                  await Provider.of<DataController>(context, listen: false)
+                                      .deleteGift(gift.id);
+
+                                  if (context.mounted) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text('${gift.name} a été supprimé'),
+                                        duration: const Duration(seconds: 4),
+                                        action: SnackBarAction(
+                                          label: 'Annuler',
+                                          textColor: Colors.yellow,
+                                          onPressed: () async {
+                                            final dataToRestore = {
+                                              'name': gift.name,
+                                              'description': gift.description,
+                                              'year': gift.year,
+                                              'link': gift.link,
+                                              'people_id': gift.personId,
+                                            };
+
+                                            await Provider.of<DataController>(context, listen: false)
+                                                .addGift(dataToRestore);
+                                          },
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                },
+                                child: const Text('Oui', style: TextStyle(color: Colors.red)),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               )),
               const Divider(),
