@@ -32,6 +32,15 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 12.0),
+          child: Image.asset(
+            'assets/images/flollylist_icon-72.png',
+            width: 36,
+            height: 36,
+            fit: BoxFit.contain,
+          ),
+        ),
         title: const Text('FlollyList'),
         actions: [
           TextButton(
