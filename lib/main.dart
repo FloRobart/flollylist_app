@@ -32,40 +32,44 @@ class MyApp extends StatelessWidget {
     final auth = Provider.of<AuthController>(context);
     final themeController = Provider.of<ThemeController>(context);
 
-    const seed = Color(0xFF6D071A); // Rouge bordeaux Noël (plus sombre)
+    const seed = Color.fromARGB(255, 114, 20, 20);
     ThemeData buildTheme(Brightness brightness) {
       final scheme = ColorScheme.fromSeed(
         seedColor: seed,
         brightness: brightness,
       );
+      final primaryOn = ThemeData.estimateBrightnessForColor(seed) == Brightness.dark
+        ? Colors.white
+        : Colors.black;
+      final schemeForced = scheme.copyWith(primary: seed, onPrimary: primaryOn);
       return ThemeData(
         colorScheme: scheme,
         useMaterial3: true,
         appBarTheme: AppBarTheme(
-          backgroundColor: scheme.primary,
-          foregroundColor: scheme.onPrimary,
+          backgroundColor: schemeForced.primary,
+          foregroundColor: schemeForced.onPrimary,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: scheme.primary,
-            foregroundColor: scheme.onPrimary,
+            backgroundColor: schemeForced.primary,
+            foregroundColor: schemeForced.onPrimary,
           ),
         ),
         filledButtonTheme: FilledButtonThemeData(
           style: FilledButton.styleFrom(
-            backgroundColor: scheme.primary,
-            foregroundColor: scheme.onPrimary,
+            backgroundColor: schemeForced.primary,
+            foregroundColor: schemeForced.onPrimary,
           ),
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
-            foregroundColor: scheme.primary,
-            side: BorderSide(color: scheme.primary),
+            foregroundColor: schemeForced.primary,
+            side: BorderSide(color: schemeForced.primary),
           ),
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: scheme.primary,
-          foregroundColor: scheme.onPrimary,
+          backgroundColor: schemeForced.primary,
+          foregroundColor: schemeForced.onPrimary,
         ),
       );
     }
