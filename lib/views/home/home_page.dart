@@ -25,6 +25,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final dataController = Provider.of<DataController>(context);
+    final auth = Provider.of<AuthController>(context);
+    final user = auth.userProfile;
     // Make a defensive copy to avoid concurrent mutation issues
     final peoples = List.of(dataController.peoples);
 
@@ -32,15 +34,37 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('FlollyList'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.account_circle),
+          TextButton(
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => const ProfilePage()),
               );
             },
-          )
+            style: TextButton.styleFrom(foregroundColor: Theme.of(context).colorScheme.onPrimary),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Flexible(
+                  child: Text(
+                    (user != null && user.pseudo.isNotEmpty) ? user.pseudo : 'Profil',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Icon(
+                  Icons.account_circle,
+                  size: 28,
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
       body: peoples.isEmpty
