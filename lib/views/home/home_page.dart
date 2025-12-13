@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const SizedBox(width: 8),
                 Icon(
-                  Icons.account_circle,
+                  Icons.person,
                   size: 28,
                   color: Theme.of(context).appBarTheme.foregroundColor
                       ?? Theme.of(context).colorScheme.onPrimary,
