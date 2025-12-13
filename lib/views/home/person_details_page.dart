@@ -85,7 +85,16 @@ class PersonDetailsPage extends StatelessWidget {
               ),
               ...gifts.map((gift) => ListTile(
                 title: Text(gift.name),
-                subtitle: gift.link != null ? Text(gift.link!) : null,
+                subtitle: (gift.link != null && gift.link!.isNotEmpty) || gift.price != null
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          if (gift.link != null && gift.link!.isNotEmpty) Text(gift.link!),
+                          if (gift.price != null)
+                            Text('Prix: ${gift.price!.toStringAsFixed(2)} €'),
+                        ],
+                      )
+                    : null,
                 leading: const Icon(Icons.card_giftcard),
                 
                 // 1. AJOUT DU onLongPress ICI
@@ -111,13 +120,20 @@ class PersonDetailsPage extends StatelessWidget {
                                 
                             // 3. (Optionnel) Petit message de confirmation
                             if (context.mounted) {
+                              final theme = Theme.of(context);
+                              final snackTheme = theme.snackBarTheme;
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text('${gift.name} a été supprimé'),
-                                  duration: const Duration(seconds: 4), // On laisse un peu plus de temps pour annuler
+                                  backgroundColor: snackTheme.backgroundColor ?? theme.colorScheme.surfaceContainerHighest,
+                                  content: Text(
+                                    '${gift.name} a été supprimé',
+                                    style: snackTheme.contentTextStyle ??
+                                        TextStyle(color: theme.colorScheme.onSurfaceVariant),
+                                  ),
+                                  duration: const Duration(seconds: 6),
                                   action: SnackBarAction(
                                     label: 'Annuler',
-                                    textColor: Colors.yellow, // Pour bien le distinguer
+                                    textColor: snackTheme.actionTextColor ?? theme.colorScheme.secondary,
                                     onPressed: () async {
                                       // LOGIQUE D'ANNULATION : On recrée le cadeau à l'identique
                                       
@@ -127,6 +143,7 @@ class PersonDetailsPage extends StatelessWidget {
                                         'description': gift.description,
                                         'year': gift.year,
                                         'link': gift.link,
+                                        'price': gift.price,
                                         'people_id': gift.personId,
                                       };
 
@@ -146,17 +163,82 @@ class PersonDetailsPage extends StatelessWidget {
                   );
                 },
 
-                trailing: IconButton(
-                  icon: const Icon(Icons.edit),
-                  onPressed: () async {
-                    final data = await showDialog<Map<String, dynamic>>(
-                      context: context,
-                      builder: (_) => GiftDialog(gift: gift),
-                    );
-                    if (data != null && context.mounted) {
-                      await Provider.of<DataController>(context, listen: false).updateGift(gift.id, data);
-                    }
-                  },
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.edit),
+                      onPressed: () async {
+                        final data = await showDialog<Map<String, dynamic>>(
+                          context: context,
+                          builder: (_) => GiftDialog(gift: gift),
+                        );
+                        if (data != null && context.mounted) {
+                          await Provider.of<DataController>(context, listen: false).updateGift(gift.id, data);
+                        }
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (ctx) => AlertDialog(
+                            title: const Text('Supprimer ce cadeau ?'),
+                            content: Text('Voulez-vous vraiment supprimer "${gift.name}" ?'),
+                            actions: [
+                              TextButton(
+                                onPressed: () => Navigator.pop(ctx),
+                                child: const Text('Non'),
+                              ),
+                              TextButton(
+                                onPressed: () async {
+                                  Navigator.pop(ctx);
+
+                                  await Provider.of<DataController>(context, listen: false)
+                                      .deleteGift(gift.id);
+
+                                  if (context.mounted) {
+                                          final theme = Theme.of(context);
+                                          final snackTheme = theme.snackBarTheme;
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            SnackBar(
+                                              backgroundColor: snackTheme.backgroundColor ?? theme.colorScheme.surfaceContainerHighest,
+                                              content: Text(
+                                                '${gift.name} a été supprimé',
+                                                style: snackTheme.contentTextStyle ??
+                                                    TextStyle(color: theme.colorScheme.onSurfaceVariant),
+                                              ),
+                                              duration: const Duration(seconds: 4),
+                                              action: SnackBarAction(
+                                                label: 'Annuler',
+                                                textColor: snackTheme.actionTextColor ?? theme.colorScheme.secondary,
+                                                onPressed: () async {
+                                                  final dataToRestore = {
+                                                    'name': gift.name,
+                                                    'description': gift.description,
+                                                    'year': gift.year,
+                                                    'link': gift.link,
+                                                    'price': gift.price,
+                                                    'people_id': gift.personId,
+                                                  };
+
+                                                  await Provider.of<DataController>(context, listen: false)
+                                                      .addGift(dataToRestore);
+                                                },
+                                              ),
+                                            ),
+                                          );
+                                  }
+                                },
+                                child: const Text('Oui', style: TextStyle(color: Colors.red)),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               )),
               const Divider(),

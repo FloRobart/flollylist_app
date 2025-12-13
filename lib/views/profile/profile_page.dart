@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart'; // Pense à ajouter intl dans pubspec.yaml
 import 'package:provider/provider.dart';
 import '../../controllers/auth_controller.dart';
+import '../../controllers/theme_controller.dart';
 import '../auth/login_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -100,6 +101,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final auth = Provider.of<AuthController>(context);
+    final themeController = Provider.of<ThemeController>(context);
     final user = auth.userProfile;
     final isLoading = auth.isLoading;
 
@@ -127,7 +129,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       // Avatar
                       CircleAvatar(
                         radius: 50,
-                        backgroundColor: Theme.of(context).primaryColor,
+                        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
                         child: Text(
                           user.pseudo.isNotEmpty ? user.pseudo[0].toUpperCase() : '?',
                           style: const TextStyle(fontSize: 40, color: Colors.white),
@@ -188,6 +190,32 @@ class _ProfilePageState extends State<ProfilePage> {
                                   decoration: BoxDecoration(
                                     color: user.isConnected ? Colors.green : Colors.grey,
                                     shape: BoxShape.circle,
+                                  ),
+                                ),
+                              ),
+
+                              const Divider(),
+
+                              ListTile(
+                                title: const Text('Thème'),
+                                subtitle: Text(themeController.currentLabel),
+                                leading: const Icon(Icons.brightness_6_outlined),
+                                trailing: DropdownButtonHideUnderline(
+                                  child: DropdownButton<ThemeMode>(
+                                    value: themeController.themeMode,
+                                    items: themeController.availableModes
+                                        .map(
+                                          (mode) => DropdownMenuItem<ThemeMode>(
+                                            value: mode,
+                                            child: Text(themeController.labelForMode(mode)),
+                                          ),
+                                        )
+                                        .toList(),
+                                    onChanged: (mode) {
+                                      if (mode != null) {
+                                        themeController.setThemeMode(mode);
+                                      }
+                                    },
                                   ),
                                 ),
                               ),

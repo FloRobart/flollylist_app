@@ -129,6 +129,7 @@ class _GiftDialogState extends State<GiftDialog> {
   late TextEditingController _descController;
   late TextEditingController _yearController;
   late TextEditingController _linkController;
+  late TextEditingController _priceController;
 
   @override
   void initState() {
@@ -138,6 +139,19 @@ class _GiftDialogState extends State<GiftDialog> {
     // Par défaut, si création, on peut mettre l'année en cours
     _yearController = TextEditingController(text: widget.gift?.year?.toString() ?? DateTime.now().year.toString());
     _linkController = TextEditingController(text: widget.gift?.link ?? '');
+    _priceController = TextEditingController(
+      text: widget.gift?.price != null ? widget.gift!.price!.toString() : '',
+    );
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _descController.dispose();
+    _yearController.dispose();
+    _linkController.dispose();
+    _priceController.dispose();
+    super.dispose();
   }
 
   @override
@@ -166,6 +180,11 @@ class _GiftDialogState extends State<GiftDialog> {
                 keyboardType: TextInputType.number,
               ),
               TextFormField(
+                controller: _priceController,
+                decoration: const InputDecoration(labelText: 'Prix (EUR)'),
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              ),
+              TextFormField(
                 controller: _linkController,
                 decoration: const InputDecoration(labelText: 'Lien (Boutique, etc.)'),
               ),
@@ -178,11 +197,13 @@ class _GiftDialogState extends State<GiftDialog> {
         ElevatedButton(
           onPressed: () {
             if (_formKey.currentState!.validate()) {
+              final priceText = _priceController.text.trim().replaceAll(',', '.');
               Navigator.pop(context, {
                 'name': _nameController.text,
                 'description': _descController.text.isEmpty ? null : _descController.text,
                 'year': _yearController.text.isEmpty ? null : int.tryParse(_yearController.text),
                 'link': _linkController.text.isEmpty ? null : _linkController.text,
+                'price': priceText.isEmpty ? null : double.tryParse(priceText),
                 'people_id': widget.personId ?? widget.gift?.personId,
               });
             }
