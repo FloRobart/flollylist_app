@@ -4,6 +4,7 @@ class Gift {
   final String? description;
   final int? year;
   final String? link;
+  final double? price;
   final int personId;
   final int userId;
 
@@ -13,6 +14,7 @@ class Gift {
     this.description,
     this.year,
     this.link,
+    this.price,
     required this.personId,
     required this.userId,
   });
@@ -24,6 +26,7 @@ class Gift {
       description: json['gift_description'],
       year: json['gift_year'],
       link: json['link'],
+      price: json['price'] != null ? (json['price'] as num).toDouble() : null,
       personId: json['people_id'],
       userId: json['user_id'],
     );
@@ -36,6 +39,7 @@ class Gift {
       'gift_description': description,
       'gift_year': year,
       'link': link,
+      'price': price,
       'people_id': personId,
       'user_id': userId,
     };

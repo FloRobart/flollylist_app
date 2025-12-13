@@ -177,6 +177,7 @@ class DataController with ChangeNotifier {
       'gift_description': data['description'],
       'gift_year': data['year'],
       'link': data['link'],
+      'price': data['price'],
       'people_id': data['people_id'],
     };
 
@@ -209,6 +210,7 @@ class DataController with ChangeNotifier {
       'gift_description': data['description'],
       'gift_year': data['year'],
       'link': data['link'],
+      'price': data['price'],
       'people_id': data['people_id'],
     };
 

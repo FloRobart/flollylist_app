@@ -85,7 +85,16 @@ class PersonDetailsPage extends StatelessWidget {
               ),
               ...gifts.map((gift) => ListTile(
                 title: Text(gift.name),
-                subtitle: gift.link != null ? Text(gift.link!) : null,
+                subtitle: (gift.link != null && gift.link!.isNotEmpty) || gift.price != null
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          if (gift.link != null && gift.link!.isNotEmpty) Text(gift.link!),
+                          if (gift.price != null)
+                            Text('Prix: ${gift.price!.toStringAsFixed(2)} €'),
+                        ],
+                      )
+                    : null,
                 leading: const Icon(Icons.card_giftcard),
                 
                 // 1. AJOUT DU onLongPress ICI
@@ -127,6 +136,7 @@ class PersonDetailsPage extends StatelessWidget {
                                         'description': gift.description,
                                         'year': gift.year,
                                         'link': gift.link,
+                                        'price': gift.price,
                                         'people_id': gift.personId,
                                       };
 
@@ -195,6 +205,7 @@ class PersonDetailsPage extends StatelessWidget {
                                               'description': gift.description,
                                               'year': gift.year,
                                               'link': gift.link,
+                                              'price': gift.price,
                                               'people_id': gift.personId,
                                             };
 
