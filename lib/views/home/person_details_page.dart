@@ -120,13 +120,20 @@ class PersonDetailsPage extends StatelessWidget {
                                 
                             // 3. (Optionnel) Petit message de confirmation
                             if (context.mounted) {
+                              final theme = Theme.of(context);
+                              final snackTheme = theme.snackBarTheme;
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text('${gift.name} a été supprimé'),
-                                  duration: const Duration(seconds: 4), // On laisse un peu plus de temps pour annuler
+                                  backgroundColor: snackTheme.backgroundColor ?? theme.colorScheme.surfaceContainerHighest,
+                                  content: Text(
+                                    '${gift.name} a été supprimé',
+                                    style: snackTheme.contentTextStyle ??
+                                        TextStyle(color: theme.colorScheme.onSurfaceVariant),
+                                  ),
+                                  duration: const Duration(seconds: 6),
                                   action: SnackBarAction(
                                     label: 'Annuler',
-                                    textColor: Colors.yellow, // Pour bien le distinguer
+                                    textColor: snackTheme.actionTextColor ?? theme.colorScheme.secondary,
                                     onPressed: () async {
                                       // LOGIQUE D'ANNULATION : On recrée le cadeau à l'identique
                                       
@@ -192,29 +199,36 @@ class PersonDetailsPage extends StatelessWidget {
                                       .deleteGift(gift.id);
 
                                   if (context.mounted) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text('${gift.name} a été supprimé'),
-                                        duration: const Duration(seconds: 4),
-                                        action: SnackBarAction(
-                                          label: 'Annuler',
-                                          textColor: Colors.yellow,
-                                          onPressed: () async {
-                                            final dataToRestore = {
-                                              'name': gift.name,
-                                              'description': gift.description,
-                                              'year': gift.year,
-                                              'link': gift.link,
-                                              'price': gift.price,
-                                              'people_id': gift.personId,
-                                            };
+                                          final theme = Theme.of(context);
+                                          final snackTheme = theme.snackBarTheme;
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            SnackBar(
+                                              backgroundColor: snackTheme.backgroundColor ?? theme.colorScheme.surfaceContainerHighest,
+                                              content: Text(
+                                                '${gift.name} a été supprimé',
+                                                style: snackTheme.contentTextStyle ??
+                                                    TextStyle(color: theme.colorScheme.onSurfaceVariant),
+                                              ),
+                                              duration: const Duration(seconds: 4),
+                                              action: SnackBarAction(
+                                                label: 'Annuler',
+                                                textColor: snackTheme.actionTextColor ?? theme.colorScheme.secondary,
+                                                onPressed: () async {
+                                                  final dataToRestore = {
+                                                    'name': gift.name,
+                                                    'description': gift.description,
+                                                    'year': gift.year,
+                                                    'link': gift.link,
+                                                    'price': gift.price,
+                                                    'people_id': gift.personId,
+                                                  };
 
-                                            await Provider.of<DataController>(context, listen: false)
-                                                .addGift(dataToRestore);
-                                          },
-                                        ),
-                                      ),
-                                    );
+                                                  await Provider.of<DataController>(context, listen: false)
+                                                      .addGift(dataToRestore);
+                                                },
+                                              ),
+                                            ),
+                                          );
                                   }
                                 },
                                 child: const Text('Oui', style: TextStyle(color: Colors.red)),
