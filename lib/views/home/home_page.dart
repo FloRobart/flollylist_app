@@ -41,7 +41,10 @@ class _HomePageState extends State<HomePage> {
                 MaterialPageRoute(builder: (_) => const ProfilePage()),
               );
             },
-            style: TextButton.styleFrom(foregroundColor: Theme.of(context).colorScheme.onPrimary),
+            style: TextButton.styleFrom(
+              foregroundColor: Theme.of(context).appBarTheme.foregroundColor
+                  ?? Theme.of(context).colorScheme.onPrimary,
+            ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -52,7 +55,8 @@ class _HomePageState extends State<HomePage> {
                     maxLines: 1,
                     style: TextStyle(
                       fontSize: 18,
-                      color: Theme.of(context).colorScheme.onPrimary,
+                      color: Theme.of(context).appBarTheme.foregroundColor
+                          ?? Theme.of(context).colorScheme.onPrimary,
                     ),
                   ),
                 ),
@@ -60,7 +64,8 @@ class _HomePageState extends State<HomePage> {
                 Icon(
                   Icons.account_circle,
                   size: 28,
-                  color: Theme.of(context).colorScheme.onPrimary,
+                  color: Theme.of(context).appBarTheme.foregroundColor
+                      ?? Theme.of(context).colorScheme.onPrimary,
                 ),
               ],
             ),
