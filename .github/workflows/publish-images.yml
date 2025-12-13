@@ -46,23 +46,23 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       # --- Docker Hub Builds ---
-      - name: Build and push econoris-app-web (Docker Hub)
+      - name: Build and push flollylist-app-web (Docker Hub)
         uses: docker/build-push-action@v4
         with:
           context: .
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/econoris-app-web:${{ steps.vars.outputs.version }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/econoris-app-web:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/flollylist-app-web:${{ steps.vars.outputs.version }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/flollylist-app-web:latest
 
       # --- GHCR Builds ---
-      - name: Build and push econoris-app-web (GHCR)
+      - name: Build and push flollylist-app-web (GHCR)
         uses: docker/build-push-action@v4
         with:
           context: .
           file: ./Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ steps.repo_owner_lc.outputs.repo_owner_lc }}/econoris-app-web:${{ steps.vars.outputs.version }}
-            ghcr.io/${{ steps.repo_owner_lc.outputs.repo_owner_lc }}/econoris-app-web:latest
+            ghcr.io/${{ steps.repo_owner_lc.outputs.repo_owner_lc }}/flollylist-app-web:${{ steps.vars.outputs.version }}
+            ghcr.io/${{ steps.repo_owner_lc.outputs.repo_owner_lc }}/flollylist-app-web:latest
