@@ -23,7 +23,7 @@ RUN flutter pub get --offline || flutter pub get
 RUN flutter build web --release
 
 # Étape 2 : Image finale avec NGINX
-FROM nginx:alpine
+FROM nginx:stable-alpine
 
 # Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
