@@ -12,7 +12,6 @@ class DataController with ChangeNotifier {
   final StorageService _storage = StorageService();
   List<People> _peoples = [];
   List<Gift> _gifts = [];
-  bool _isLoading = false;
 
   List<People> get peoples => _peoples;
   
@@ -40,7 +39,6 @@ class DataController with ChangeNotifier {
   }
 
   Future<void> initData() async {
-    _isLoading = true;
     notifyListeners();
     
     // 1. Charger depuis le cache local
@@ -54,7 +52,6 @@ class DataController with ChangeNotifier {
         await fetchData(jwt);
     }
     
-    _isLoading = false;
     notifyListeners();
   }
 

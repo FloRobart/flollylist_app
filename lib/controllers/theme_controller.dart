@@ -27,8 +27,7 @@ class ThemeController with ChangeNotifier {
       case ThemeMode.dark:
         return 'Sombre';
       case ThemeMode.system:
-      default:
-        return 'Auto';
+      return 'Auto';
     }
   }
 
@@ -58,8 +57,7 @@ class ThemeController with ChangeNotifier {
       case ThemeMode.dark:
         return 'dark';
       case ThemeMode.system:
-      default:
-        return 'system';
+      return 'system';
     }
   }
 }
