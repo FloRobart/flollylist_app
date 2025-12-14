@@ -1,11 +1,11 @@
 {
-    "name": "flollylist_app",
-    "short_name": "flollylist_app",
+    "name": "FlollyList",
+    "short_name": "FlollyList",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#721414",
+    "theme_color": "#721414",
+    "description": "FlollyList, votre application de gestion des cadeaux de noël, simple et efficace.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
