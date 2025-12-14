@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import '../../models/people_model.dart';
 import '../../controllers/data_controller.dart';
@@ -104,6 +105,24 @@ class PersonDetailsPage extends StatelessWidget {
                       )
                     : null,
                 leading: const Icon(Icons.card_giftcard),
+                onTap: () async {
+                  final link = gift.link;
+                  if (link == null || link.isEmpty) return;
+                  try {
+                    await Clipboard.setData(ClipboardData(text: link));
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Lien copié dans le presse-papiers.')),
+                      );
+                    }
+                  } catch (_) {
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Impossible de copier le lien.")),
+                      );
+                    }
+                  }
+                },
                 
                 // 1. AJOUT DU onLongPress ICI
                 onLongPress: () {
