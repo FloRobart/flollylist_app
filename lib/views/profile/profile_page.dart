@@ -3,6 +3,7 @@ import 'package:intl/intl.dart'; // Pense à ajouter intl dans pubspec.yaml
 import 'package:provider/provider.dart';
 import '../../controllers/auth_controller.dart';
 import '../../controllers/theme_controller.dart';
+import '../../core/storage_service.dart';
 import '../auth/login_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -90,6 +91,19 @@ class _ProfilePageState extends State<ProfilePage> {
     final auth = Provider.of<AuthController>(context, listen: false);
     await auth.logoutServer(); // Appelle l'API logout puis nettoie le local
     
+    if (context.mounted) {
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (_) => const LoginPage()),
+        (route) => false,
+      );
+    }
+  }
+
+  // Déconnexion locale : supprime uniquement le JWT localement et redirige
+  void _handleLocalLogout(BuildContext context) async {
+    final storage = StorageService();
+    await storage.clearAuth();
+
     if (context.mounted) {
       Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (_) => const LoginPage()),
@@ -226,13 +240,30 @@ class _ProfilePageState extends State<ProfilePage> {
                       
                       const SizedBox(height: 40),
                       
-                      // Bouton Déconnexion
+                      // Bouton Déconnexion local (supprime seulement le JWT)
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton.icon(
+                          onPressed: () => _handleLocalLogout(context),
+                          icon: const Icon(Icons.exit_to_app),
+                          label: const Text('Se déconnecter'),
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.redAccent,
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 12),
+
+                      // Bouton Déconnexion serveur (tous les appareils)
                       SizedBox(
                         width: double.infinity,
                         child: OutlinedButton.icon(
                           onPressed: () => _handleLogout(context),
                           icon: const Icon(Icons.logout),
-                          label: const Text('Se déconnecter'),
+                          label: const Text('Se déconnecter de tous les appareils'),
                           style: OutlinedButton.styleFrom(
                             foregroundColor: Colors.red,
                             side: const BorderSide(color: Colors.red),
