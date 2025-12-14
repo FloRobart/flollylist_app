@@ -85,13 +85,21 @@ class PersonDetailsPage extends StatelessWidget {
               ),
               ...gifts.map((gift) => ListTile(
                 title: Text(gift.name),
-                subtitle: (gift.link != null && gift.link!.isNotEmpty) || gift.price != null
+                subtitle: (gift.link != null && gift.link!.isNotEmpty) || gift.price != null || (gift.description != null && gift.description!.isNotEmpty)
                     ? Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          if (gift.link != null && gift.link!.isNotEmpty) Text(gift.link!),
                           if (gift.price != null)
-                            Text('Prix: ${gift.price!.toStringAsFixed(2)} €'),
+                            Text('${gift.price!.toStringAsFixed(2)} €'),
+
+                          if (gift.link != null && gift.link!.isNotEmpty)
+                            Text(gift.link!),
+
+                          if (gift.description != null && gift.description!.isNotEmpty)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 4.0),
+                              child: Text(gift.description!),
+                            ),
                         ],
                       )
                     : null,
