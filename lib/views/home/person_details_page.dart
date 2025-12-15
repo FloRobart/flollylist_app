@@ -70,18 +70,37 @@ class PersonDetailsPage extends StatelessWidget {
         itemBuilder: (context, index) {
           final year = sortedYears[index];
           final gifts = giftsByYear[year]!;
+          final totalPrice = gifts
+              .where((g) => g.price != null)
+              .fold<double>(0.0, (sum, g) => sum + (g.price ?? 0));
+          final totalLabel = totalPrice > 0
+              ? '${totalPrice.toStringAsFixed(2)} €'
+              : null;
 
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  year,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.bold
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      year,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    if (totalLabel != null)
+                      Text(
+                        totalLabel,
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurface,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                  ],
                 ),
               ),
               ...gifts.map((gift) => ListTile(

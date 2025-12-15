@@ -81,45 +81,85 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: peoples.isEmpty
-          ? const Center(child: Text("Aucune personne dans votre liste.\nAjoutez-en une !"))
-          : ListView.builder(
-              itemCount: peoples.length,
-              itemBuilder: (context, index) {
-                final person = peoples[index];
-                return Card(
-                  margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: ListTile(
-                    leading: CircleAvatar(child: Text((person.firstName.isNotEmpty ? person.firstName[0] : '?').toUpperCase())),
-                    title: Text(
-                      person.lastName != null && person.lastName!.isNotEmpty
-                        ? '${person.firstName} ${person.lastName}'
-                        : person.firstName,
-                    ),
-                    subtitle: person.dateOfBirth != null
-                        ? (() {
-                            final parsed = DateTime.tryParse(person.dateOfBirth!);
-                            if (parsed != null) {
-                              return Text('Né(e): ${parsed.day}/${parsed.month}/${parsed.year}');
-                            }
-                            return Text('Date: ${person.dateOfBirth}');
-                          })()
-                        : (person.lastName != null && person.lastName!.isNotEmpty
-                            ? Text(person.lastName!)
-                            : const Text("Pas d'informations")),
-                    trailing: const Icon(Icons.chevron_right),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => PersonDetailsPage(person: person),
-                        ),
-                      );
-                    },
+      body: Builder(builder: (context) {
+        final currentYear = DateTime.now().year;
+        final giftsBy = dataController.getGiftsByPeopleAndYear();
+        final yearKey = currentYear.toString();
+        double total = 0.0;
+        giftsBy.forEach((_, map) {
+          final list = map[yearKey];
+          if (list != null) {
+            for (var g in list) {
+              total += g.price ?? 0.0;
+            }
+          }
+        });
+        final totalStr = total.toStringAsFixed(2);
+
+        return Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(text: 'Montant total des cadeaux de Noël de l\'année $currentYear : '),
+                      TextSpan(
+                        text: '$totalStr €',
+                        style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                      ),
+                    ],
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                   ),
-                );
-              },
+                ),
+              ),
             ),
+            Expanded(
+              child: peoples.isEmpty
+                  ? const Center(child: Text("Aucune personne dans votre liste.\nAjoutez-en une !"))
+                  : ListView.builder(
+                      itemCount: peoples.length,
+                      itemBuilder: (context, index) {
+                        final person = peoples[index];
+                        return Card(
+                          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          child: ListTile(
+                            leading: CircleAvatar(child: Text((person.firstName.isNotEmpty ? person.firstName[0] : '?').toUpperCase())),
+                            title: Text(
+                              person.lastName != null && person.lastName!.isNotEmpty
+                                ? '${person.firstName} ${person.lastName}'
+                                : person.firstName,
+                            ),
+                            subtitle: person.dateOfBirth != null
+                                ? (() {
+                                    final parsed = DateTime.tryParse(person.dateOfBirth!);
+                                    if (parsed != null) {
+                                      return Text('Né(e): ${parsed.day}/${parsed.month}/${parsed.year}');
+                                    }
+                                    return Text('Date: ${person.dateOfBirth}');
+                                  })()
+                                : (person.lastName != null && person.lastName!.isNotEmpty
+                                    ? Text(person.lastName!)
+                                    : const Text("Pas d'informations")),
+                            trailing: const Icon(Icons.chevron_right),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => PersonDetailsPage(person: person),
+                                ),
+                              );
+                            },
+                          ),
+                        );
+                      },
+                    ),
+            ),
+          ],
+        );
+      }),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           final data = await showDialog<Map<String, dynamic>>(
