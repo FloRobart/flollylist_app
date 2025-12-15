@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import '../../models/people_model.dart';
 import '../../controllers/data_controller.dart';
@@ -69,33 +70,78 @@ class PersonDetailsPage extends StatelessWidget {
         itemBuilder: (context, index) {
           final year = sortedYears[index];
           final gifts = giftsByYear[year]!;
+          final totalPrice = gifts
+              .where((g) => g.price != null)
+              .fold<double>(0.0, (sum, g) => sum + (g.price ?? 0));
+          final totalLabel = totalPrice > 0
+              ? '${totalPrice.toStringAsFixed(2)} €'
+              : null;
 
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  year,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.bold
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      year,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    if (totalLabel != null)
+                      Text(
+                        totalLabel,
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurface,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                  ],
                 ),
               ),
               ...gifts.map((gift) => ListTile(
                 title: Text(gift.name),
-                subtitle: (gift.link != null && gift.link!.isNotEmpty) || gift.price != null
+                subtitle: (gift.link != null && gift.link!.isNotEmpty) || gift.price != null || (gift.description != null && gift.description!.isNotEmpty)
                     ? Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          if (gift.link != null && gift.link!.isNotEmpty) Text(gift.link!),
                           if (gift.price != null)
-                            Text('Prix: ${gift.price!.toStringAsFixed(2)} €'),
+                            Text('${gift.price!.toStringAsFixed(2)} €'),
+
+                          if (gift.link != null && gift.link!.isNotEmpty)
+                            Text(gift.link!),
+
+                          if (gift.description != null && gift.description!.isNotEmpty)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 4.0),
+                              child: Text(gift.description!),
+                            ),
                         ],
                       )
                     : null,
                 leading: const Icon(Icons.card_giftcard),
+                onTap: () async {
+                  final link = gift.link;
+                  if (link == null || link.isEmpty) return;
+                  try {
+                    await Clipboard.setData(ClipboardData(text: link));
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Lien copié dans le presse-papiers.')),
+                      );
+                    }
+                  } catch (_) {
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Impossible de copier le lien.")),
+                      );
+                    }
+                  }
+                },
                 
                 // 1. AJOUT DU onLongPress ICI
                 onLongPress: () {
