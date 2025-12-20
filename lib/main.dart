@@ -4,7 +4,9 @@ import 'package:provider/provider.dart';
 import 'controllers/auth_controller.dart';
 import 'controllers/data_controller.dart';
 import 'controllers/theme_controller.dart';
+import 'controllers/app_lock_controller.dart';
 import 'views/auth/login_page.dart';
+import 'views/auth/app_lock_page.dart';
 import 'views/home/home_page.dart';
 
 void main() async {
@@ -20,6 +22,7 @@ void main() async {
         ChangeNotifierProvider.value(value: authController),
         ChangeNotifierProvider(create: (_) => DataController()),
         ChangeNotifierProvider(create: (_) => ThemeController()),
+        ChangeNotifierProvider(create: (_) => AppLockController()),
       ],
       child: const MyApp(),
     ),
@@ -33,6 +36,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final auth = Provider.of<AuthController>(context);
     final themeController = Provider.of<ThemeController>(context);
+    final appLock = Provider.of<AppLockController>(context);
 
     const seed = Color.fromARGB(255, 114, 20, 20);
     ThemeData buildTheme(Brightness brightness) {
@@ -79,12 +83,23 @@ class MyApp extends StatelessWidget {
     final lightTheme = buildTheme(Brightness.light);
     final darkTheme = buildTheme(Brightness.dark);
 
+    Widget home;
+    if (appLock.isLoading) {
+      home = const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      );
+    } else if (!appLock.isUnlocked) {
+      home = const AppLockPage();
+    } else {
+      home = auth.isAuthenticated ? const HomePage() : const LoginPage();
+    }
+
     return MaterialApp(
       title: 'FlollyList',
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: themeController.themeMode,
-      home: auth.isAuthenticated ? const HomePage() : const LoginPage(),
+      home: home,
     );
   }
 }
