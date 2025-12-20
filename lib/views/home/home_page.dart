@@ -123,10 +123,21 @@ class _HomePageState extends State<HomePage> {
                       itemCount: peoples.length,
                       itemBuilder: (context, index) {
                         final person = peoples[index];
+                        final giftsForPerson = giftsBy[person.id]?[yearKey] ?? [];
+                        final hasGiftThisYear = giftsForPerson.isNotEmpty;
+                        final avatarColor = hasGiftThisYear
+                            ? Colors.green
+                            : Colors.red.shade700;
                         return Card(
                           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                           child: ListTile(
-                            leading: CircleAvatar(child: Text((person.firstName.isNotEmpty ? person.firstName[0] : '?').toUpperCase())),
+                            leading: CircleAvatar(
+                              backgroundColor: avatarColor,
+                              child: Text(
+                                (person.firstName.isNotEmpty ? person.firstName[0] : '?').toUpperCase(),
+                                style: const TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ),
                             title: Text(
                               person.lastName != null && person.lastName!.isNotEmpty
                                 ? '${person.firstName} ${person.lastName}'
