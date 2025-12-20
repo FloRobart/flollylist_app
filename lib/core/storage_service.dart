@@ -9,6 +9,7 @@ class StorageService {
   static const String _keyPeoples = 'data_peoples';
   static const String _keyGifts = 'data_gifts';
   static const String _keyThemeMode = 'app_theme_mode';
+  static const String _keyAppPassword = 'app_lock_password';
 
   Future<void> saveJwt(String token) async {
     final prefs = await SharedPreferences.getInstance();
@@ -73,5 +74,15 @@ class StorageService {
   Future<String?> getThemeMode() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString(_keyThemeMode);
+  }
+
+  Future<void> saveAppPassword(String password) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_keyAppPassword, password);
+  }
+
+  Future<String?> getAppPassword() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(_keyAppPassword);
   }
 }
