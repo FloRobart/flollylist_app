@@ -123,14 +123,45 @@ class _HomePageState extends State<HomePage> {
                       itemCount: peoples.length,
                       itemBuilder: (context, index) {
                         final person = peoples[index];
+                        final giftsForPerson = giftsBy[person.id]?[yearKey] ?? [];
+                        final hasGiftThisYear = giftsForPerson.isNotEmpty;
+                        final avatarColor = hasGiftThisYear
+                            ? Colors.green
+                            : Colors.red.shade700;
+                        double personTotal = 0.0;
+                        for (var g in giftsForPerson) {
+                          personTotal += g.price ?? 0.0;
+                        }
+                        final personTotalStr = personTotal.toStringAsFixed(2);
                         return Card(
                           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                           child: ListTile(
-                            leading: CircleAvatar(child: Text((person.firstName.isNotEmpty ? person.firstName[0] : '?').toUpperCase())),
-                            title: Text(
-                              person.lastName != null && person.lastName!.isNotEmpty
-                                ? '${person.firstName} ${person.lastName}'
-                                : person.firstName,
+                            leading: CircleAvatar(
+                              backgroundColor: avatarColor,
+                              child: Text(
+                                (person.firstName.isNotEmpty ? person.firstName[0] : '?').toUpperCase(),
+                                style: const TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            title: Row(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    person.lastName != null && person.lastName!.isNotEmpty
+                                      ? '${person.firstName} ${person.lastName}'
+                                      : person.firstName,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                Text(
+                                  '$personTotalStr €',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    color: Theme.of(context).colorScheme.primary,
+                                  ),
+                                ),
+                              ],
                             ),
                             subtitle: person.dateOfBirth != null
                                 ? (() {
