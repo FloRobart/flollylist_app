@@ -1,5 +1,5 @@
-import 'package:flollylist_app/domain/models/peoples/people.dart';
-import 'package:flollylist_app/ui/core/themes/theme.dart';
+import 'package:hollylist_app/domain/models/peoples/people.dart';
+import 'package:hollylist_app/ui/core/themes/theme.dart';
 import 'package:flutter/material.dart';
 
 /// Avatar d'un proche, avec l'initiale de son prénom : vert s'il a déjà un cadeau cette année,

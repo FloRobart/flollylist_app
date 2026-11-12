@@ -1,5 +1,5 @@
-import 'package:flollylist_app/domain/models/gifts/gift.dart';
-import 'package:flollylist_app/domain/models/peoples/people.dart';
+import 'package:hollylist_app/domain/models/gifts/gift.dart';
+import 'package:hollylist_app/domain/models/peoples/people.dart';
 
 /* Shared builders of the tests: only the fields that matter to a test are given */
 

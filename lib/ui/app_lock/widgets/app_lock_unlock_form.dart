@@ -1,7 +1,7 @@
-import 'package:flollylist_app/ui/app_lock/view_models/app_lock_viewmodel.dart';
-import 'package:flollylist_app/ui/app_lock/widgets/app_lock_code_field.dart';
-import 'package:flollylist_app/ui/core/ui/forms/submit_button.dart';
-import 'package:flollylist_app/ui/core/ui/widgets/confirm_dialog.dart';
+import 'package:hollylist_app/ui/app_lock/view_models/app_lock_viewmodel.dart';
+import 'package:hollylist_app/ui/app_lock/widgets/app_lock_code_field.dart';
+import 'package:hollylist_app/ui/core/ui/forms/submit_button.dart';
+import 'package:hollylist_app/ui/core/ui/widgets/confirm_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

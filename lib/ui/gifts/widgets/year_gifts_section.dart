@@ -1,8 +1,8 @@
-import 'package:flollylist_app/domain/models/gifts/gift.dart';
-import 'package:flollylist_app/ui/core/ui/utils/format_price.dart';
-import 'package:flollylist_app/ui/core/ui/utils/pluralize.dart';
-import 'package:flollylist_app/ui/gifts/view_models/gifts_by_year.dart';
-import 'package:flollylist_app/ui/gifts/widgets/gift_tile.dart';
+import 'package:hollylist_app/domain/models/gifts/gift.dart';
+import 'package:hollylist_app/ui/core/ui/utils/format_price.dart';
+import 'package:hollylist_app/ui/core/ui/utils/pluralize.dart';
+import 'package:hollylist_app/ui/gifts/view_models/gifts_by_year.dart';
+import 'package:hollylist_app/ui/gifts/widgets/gift_tile.dart';
 import 'package:flutter/material.dart';
 
 /// Les cadeaux d'une année pour un proche, avec leur nombre et leur prix total.

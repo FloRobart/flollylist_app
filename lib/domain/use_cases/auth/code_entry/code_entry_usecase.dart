@@ -1,5 +1,5 @@
-import 'package:flollylist_app/data/repositories/auth/auth_repository.dart';
-import 'package:flollylist_app/data/services/app_lock/app_lock_manager.dart';
+import 'package:hollylist_app/data/repositories/auth/auth_repository.dart';
+import 'package:hollylist_app/data/services/app_lock/app_lock_manager.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Fournit une instance de [CodeEntryUseCase].

@@ -1,8 +1,8 @@
-import 'package:flollylist_app/ui/core/ui/utils/error_message.dart';
-import 'package:flollylist_app/ui/core/ui/utils/show_message.dart';
-import 'package:flollylist_app/ui/core/ui/widgets/confirm_dialog.dart';
-import 'package:flollylist_app/ui/profile/view_models/profile_screen_viewmodel.dart';
-import 'package:flollylist_app/ui/profile/widgets/change_app_lock_code_dialog.dart';
+import 'package:hollylist_app/ui/core/ui/utils/error_message.dart';
+import 'package:hollylist_app/ui/core/ui/utils/show_message.dart';
+import 'package:hollylist_app/ui/core/ui/widgets/confirm_dialog.dart';
+import 'package:hollylist_app/ui/profile/view_models/profile_screen_viewmodel.dart';
+import 'package:hollylist_app/ui/profile/widgets/change_app_lock_code_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -60,7 +60,7 @@ class ProfileAction {
     final isConfirmed = await showConfirmDialog(
       context,
       title: 'Se déconnecter partout ?',
-      message: 'Vous serez déconnecté, sur tous vos appareils, de toutes les applications qui utilisent votre compte (FlollyList, Éconoris...).',
+      message: 'Vous serez déconnecté, sur tous vos appareils, de toutes les applications qui utilisent votre compte (HollyList, Éconoris...).',
       confirmLabel: 'Me déconnecter',
     );
     if (!isConfirmed) return;

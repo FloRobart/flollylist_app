@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flollylist_app/data/services/auth/auth_manager.dart';
+import 'package:hollylist_app/data/services/auth/auth_manager.dart';
 
 /// Intercepteur Dio qui ajoute le JWT aux requêtes authentifiées, et déconnecte l'utilisateur
 /// quand le serveur refuse ce JWT.

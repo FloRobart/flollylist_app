@@ -1,5 +1,5 @@
-import 'package:flollylist_app/config/app_config.dart';
-import 'package:flollylist_app/data/services/api/api_client.dart';
+import 'package:hollylist_app/config/app_config.dart';
+import 'package:hollylist_app/data/services/api/api_client.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Fournit une instance de [PeopleApiClient].
@@ -7,7 +7,7 @@ final peopleApiClientProvider = Provider<PeopleApiClient>((ref) {
   return PeopleApiClient(apiClient: ref.read(apiClientProvider));
 });
 
-/// Client de l'API des proches de l'utilisateur (flollylist-api).
+/// Client de l'API des proches de l'utilisateur (hollylist-api).
 class PeopleApiClient {
   const PeopleApiClient({required this.apiClient});
 

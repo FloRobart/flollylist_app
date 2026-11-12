@@ -1,12 +1,12 @@
-import 'package:flollylist_app/config/constantes.dart';
-import 'package:flollylist_app/domain/models/gifts/gift.dart';
-import 'package:flollylist_app/domain/models/gifts/upsert/gift_upsert.dart';
-import 'package:flollylist_app/domain/models/peoples/people.dart';
-import 'package:flollylist_app/ui/core/ui/forms/form_validators.dart';
-import 'package:flollylist_app/ui/core/ui/forms/price_field.dart';
-import 'package:flollylist_app/ui/core/ui/forms/submit_button.dart';
-import 'package:flollylist_app/ui/core/ui/widgets/form_sheet.dart';
-import 'package:flollylist_app/ui/gifts/widgets/gift_year_field.dart';
+import 'package:hollylist_app/config/constantes.dart';
+import 'package:hollylist_app/domain/models/gifts/gift.dart';
+import 'package:hollylist_app/domain/models/gifts/upsert/gift_upsert.dart';
+import 'package:hollylist_app/domain/models/peoples/people.dart';
+import 'package:hollylist_app/ui/core/ui/forms/form_validators.dart';
+import 'package:hollylist_app/ui/core/ui/forms/price_field.dart';
+import 'package:hollylist_app/ui/core/ui/forms/submit_button.dart';
+import 'package:hollylist_app/ui/core/ui/widgets/form_sheet.dart';
+import 'package:hollylist_app/ui/gifts/widgets/gift_year_field.dart';
 import 'package:flutter/material.dart';
 
 /// Formulaire d'ajout ou de modification d'un cadeau. Renvoie un [GiftUpsert] à sa validation.

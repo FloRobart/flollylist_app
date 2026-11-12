@@ -1,4 +1,4 @@
-package fr.florobart.flollylist
+package fr.florobart.hollylist
 
 import io.flutter.embedding.android.FlutterActivity
 

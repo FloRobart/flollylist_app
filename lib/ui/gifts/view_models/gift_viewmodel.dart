@@ -1,7 +1,7 @@
-import 'package:flollylist_app/data/services/auth/auth_manager.dart';
-import 'package:flollylist_app/domain/models/gifts/gift.dart';
-import 'package:flollylist_app/domain/models/gifts/upsert/gift_upsert.dart';
-import 'package:flollylist_app/domain/use_cases/gifts/gift_usecase.dart';
+import 'package:hollylist_app/data/services/auth/auth_manager.dart';
+import 'package:hollylist_app/domain/models/gifts/gift.dart';
+import 'package:hollylist_app/domain/models/gifts/upsert/gift_upsert.dart';
+import 'package:hollylist_app/domain/use_cases/gifts/gift_usecase.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Provider d'état asynchrone des cadeaux de l'utilisateur, pour tous ses proches.

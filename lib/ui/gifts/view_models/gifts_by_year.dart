@@ -1,4 +1,4 @@
-import 'package:flollylist_app/domain/models/gifts/gift.dart';
+import 'package:hollylist_app/domain/models/gifts/gift.dart';
 
 /// Les cadeaux d'une même année. [year] est null pour les cadeaux sans année.
 class GiftYearGroup {

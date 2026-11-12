@@ -1,4 +1,4 @@
-import 'package:flollylist_app/config/app_config.dart';
+import 'package:hollylist_app/config/app_config.dart';
 import 'package:flutter/material.dart';
 
 /// Présentation de l'application et réponses aux questions sur la connexion.

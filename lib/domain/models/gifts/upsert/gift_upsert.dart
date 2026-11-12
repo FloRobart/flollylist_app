@@ -1,4 +1,4 @@
-import 'package:flollylist_app/domain/models/gifts/gift.dart';
+import 'package:hollylist_app/domain/models/gifts/gift.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'gift_upsert.freezed.dart';

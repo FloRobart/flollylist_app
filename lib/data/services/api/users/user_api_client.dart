@@ -1,5 +1,5 @@
-import 'package:flollylist_app/config/app_config.dart';
-import 'package:flollylist_app/data/services/api/api_client.dart';
+import 'package:hollylist_app/config/app_config.dart';
+import 'package:hollylist_app/data/services/api/api_client.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Fournit une instance d'[UserApiClient].

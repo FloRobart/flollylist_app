@@ -1,5 +1,5 @@
-import 'package:flollylist_app/domain/models/gifts/gift.dart';
-import 'package:flollylist_app/ui/core/ui/utils/format_price.dart';
+import 'package:hollylist_app/domain/models/gifts/gift.dart';
+import 'package:hollylist_app/ui/core/ui/utils/format_price.dart';
 import 'package:flutter/material.dart';
 
 /// Détails d'un cadeau, avec ses actions : copier le lien, modifier et supprimer.

@@ -1,6 +1,6 @@
-import 'package:flollylist_app/ui/auth/login/view_models/login_body_viewmodel.dart';
-import 'package:flollylist_app/ui/auth/login/widgets/login_form.dart';
-import 'package:flollylist_app/ui/core/ui/widgets/loading_widget.dart';
+import 'package:hollylist_app/ui/auth/login/view_models/login_body_viewmodel.dart';
+import 'package:hollylist_app/ui/auth/login/widgets/login_form.dart';
+import 'package:hollylist_app/ui/core/ui/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

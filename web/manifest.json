@@ -1,11 +1,11 @@
 {
-    "name": "FlollyList",
-    "short_name": "FlollyList",
+    "name": "HollyList",
+    "short_name": "HollyList",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#721414",
     "theme_color": "#721414",
-    "description": "FlollyList, votre application de gestion des cadeaux de Noël de vos proches, simple et efficace.",
+    "description": "HollyList, votre application de gestion des cadeaux de Noël de vos proches, simple et efficace.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

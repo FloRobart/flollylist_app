@@ -1,5 +1,5 @@
-import 'package:flollylist_app/config/shared_preferences_keys.dart';
-import 'package:flollylist_app/data/services/app_lock/app_lock_manager.dart';
+import 'package:hollylist_app/config/shared_preferences_keys.dart';
+import 'package:hollylist_app/data/services/app_lock/app_lock_manager.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';

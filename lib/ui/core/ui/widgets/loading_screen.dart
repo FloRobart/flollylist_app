@@ -1,4 +1,4 @@
-import 'package:flollylist_app/config/assets.dart';
+import 'package:hollylist_app/config/assets.dart';
 import 'package:flutter/material.dart';
 
 /// Écran affiché le temps de lire la session et le verrouillage dans le stockage local.

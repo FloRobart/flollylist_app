@@ -1,13 +1,13 @@
-import 'package:flollylist_app/config/app_config.dart';
-import 'package:flollylist_app/domain/models/users/user.dart';
-import 'package:flollylist_app/ui/core/ui/widgets/base_app.dart';
-import 'package:flollylist_app/ui/profile/view_models/profile_action.dart';
-import 'package:flollylist_app/ui/profile/view_models/profile_screen_viewmodel.dart';
-import 'package:flollylist_app/ui/profile/widgets/app_lock_section.dart';
-import 'package:flollylist_app/ui/profile/widgets/logout_section.dart';
-import 'package:flollylist_app/ui/profile/widgets/overview_section.dart';
-import 'package:flollylist_app/ui/profile/widgets/status_section.dart';
-import 'package:flollylist_app/ui/profile/widgets/theme_section.dart';
+import 'package:hollylist_app/config/app_config.dart';
+import 'package:hollylist_app/domain/models/users/user.dart';
+import 'package:hollylist_app/ui/core/ui/widgets/base_app.dart';
+import 'package:hollylist_app/ui/profile/view_models/profile_action.dart';
+import 'package:hollylist_app/ui/profile/view_models/profile_screen_viewmodel.dart';
+import 'package:hollylist_app/ui/profile/widgets/app_lock_section.dart';
+import 'package:hollylist_app/ui/profile/widgets/logout_section.dart';
+import 'package:hollylist_app/ui/profile/widgets/overview_section.dart';
+import 'package:hollylist_app/ui/profile/widgets/status_section.dart';
+import 'package:hollylist_app/ui/profile/widgets/theme_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

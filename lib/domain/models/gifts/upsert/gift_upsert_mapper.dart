@@ -1,5 +1,5 @@
-import 'package:flollylist_app/data/models/gifts/upsert/gift_upsert_dto.dart';
-import 'package:flollylist_app/domain/models/gifts/upsert/gift_upsert.dart';
+import 'package:hollylist_app/data/models/gifts/upsert/gift_upsert_dto.dart';
+import 'package:hollylist_app/domain/models/gifts/upsert/gift_upsert.dart';
 
 extension GiftUpsertMapper on GiftUpsert {
   GiftUpsertDto toDto() {

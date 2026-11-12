@@ -1,6 +1,6 @@
-import 'package:flollylist_app/data/services/app_lock/app_lock_manager.dart';
-import 'package:flollylist_app/data/services/auth/auth_manager.dart';
-import 'package:flollylist_app/routing/routes.dart';
+import 'package:hollylist_app/data/services/app_lock/app_lock_manager.dart';
+import 'package:hollylist_app/data/services/auth/auth_manager.dart';
+import 'package:hollylist_app/routing/routes.dart';
 
 /* Pages reachable without being logged in */
 const Set<String> _loginRoutes = {AppRoutes.login, AppRoutes.codeEntry};

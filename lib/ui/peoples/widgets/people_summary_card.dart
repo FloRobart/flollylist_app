@@ -1,9 +1,9 @@
-import 'package:flollylist_app/domain/models/peoples/people.dart';
-import 'package:flollylist_app/ui/core/ui/utils/format_date.dart';
-import 'package:flollylist_app/ui/core/ui/utils/format_price.dart';
-import 'package:flollylist_app/ui/core/ui/utils/pluralize.dart';
-import 'package:flollylist_app/ui/core/ui/widgets/card_container.dart';
-import 'package:flollylist_app/ui/peoples/widgets/people_avatar.dart';
+import 'package:hollylist_app/domain/models/peoples/people.dart';
+import 'package:hollylist_app/ui/core/ui/utils/format_date.dart';
+import 'package:hollylist_app/ui/core/ui/utils/format_price.dart';
+import 'package:hollylist_app/ui/core/ui/utils/pluralize.dart';
+import 'package:hollylist_app/ui/core/ui/widgets/card_container.dart';
+import 'package:hollylist_app/ui/peoples/widgets/people_avatar.dart';
 import 'package:flutter/material.dart';
 
 /// En-tête de la page d'un proche : son nom, son âge, son budget de l'année, et ses actions.

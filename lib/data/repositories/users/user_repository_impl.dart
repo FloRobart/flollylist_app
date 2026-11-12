@@ -1,9 +1,9 @@
-import 'package:flollylist_app/data/models/users/user_dto.dart';
-import 'package:flollylist_app/data/models/users/user_dto_mapper.dart';
-import 'package:flollylist_app/data/repositories/users/user_repository.dart';
-import 'package:flollylist_app/data/repositories/users/user_repository_remote.dart';
-import 'package:flollylist_app/data/services/auth/auth_manager.dart';
-import 'package:flollylist_app/domain/models/users/user.dart';
+import 'package:hollylist_app/data/models/users/user_dto.dart';
+import 'package:hollylist_app/data/models/users/user_dto_mapper.dart';
+import 'package:hollylist_app/data/repositories/users/user_repository.dart';
+import 'package:hollylist_app/data/repositories/users/user_repository_remote.dart';
+import 'package:hollylist_app/data/services/auth/auth_manager.dart';
+import 'package:hollylist_app/domain/models/users/user.dart';
 
 class UserRepositoryImpl extends UserRepository {
   UserRepositoryImpl({required this.remote, required this.authNotifier});

@@ -1,6 +1,6 @@
-import 'package:flollylist_app/ui/auth/code_entry/view_models/code_entry_body_viewmodel.dart';
-import 'package:flollylist_app/ui/auth/code_entry/widgets/code_entry_body.dart';
-import 'package:flollylist_app/ui/auth/login/widgets/login_form.dart';
+import 'package:hollylist_app/ui/auth/code_entry/view_models/code_entry_body_viewmodel.dart';
+import 'package:hollylist_app/ui/auth/code_entry/widgets/code_entry_body.dart';
+import 'package:hollylist_app/ui/auth/login/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -21,7 +21,7 @@ Future<void> pumpAuthWidget(WidgetTester tester, Widget child) async {
 void main() {
   setUp(
     () =>
-        SharedPreferences.setMockInitialValues({'email': 'user@flollylist.fr'}),
+        SharedPreferences.setMockInitialValues({'email': 'user@hollylist.fr'}),
   );
 
   group('Code entry', () {
@@ -40,7 +40,7 @@ void main() {
     testWidgets('Shows the email the code was sent to', (tester) async {
       await pumpAuthWidget(tester, const CodeEntryBody());
 
-      expect(find.text('user@flollylist.fr'), findsOneWidget);
+      expect(find.text('user@hollylist.fr'), findsOneWidget);
     });
 
     testWidgets(

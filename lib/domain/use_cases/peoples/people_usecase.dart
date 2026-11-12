@@ -1,6 +1,6 @@
-import 'package:flollylist_app/data/repositories/peoples/people_repository.dart';
-import 'package:flollylist_app/domain/models/peoples/people.dart';
-import 'package:flollylist_app/domain/models/peoples/upsert/people_upsert.dart';
+import 'package:hollylist_app/data/repositories/peoples/people_repository.dart';
+import 'package:hollylist_app/domain/models/peoples/people.dart';
+import 'package:hollylist_app/domain/models/peoples/upsert/people_upsert.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Fournit une instance de [PeopleUseCase].

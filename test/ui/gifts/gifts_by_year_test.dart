@@ -1,5 +1,5 @@
-import 'package:flollylist_app/ui/gifts/view_models/gifts_by_year.dart';
-import 'package:flollylist_app/ui/gifts/widgets/gift_year_field.dart';
+import 'package:hollylist_app/ui/gifts/view_models/gifts_by_year.dart';
+import 'package:hollylist_app/ui/gifts/widgets/gift_year_field.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../test_data.dart';

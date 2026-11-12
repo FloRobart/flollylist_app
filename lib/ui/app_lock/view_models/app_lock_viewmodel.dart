@@ -1,5 +1,5 @@
-import 'package:flollylist_app/config/constantes.dart';
-import 'package:flollylist_app/domain/use_cases/app_lock/app_lock_usecase.dart';
+import 'package:hollylist_app/config/constantes.dart';
+import 'package:hollylist_app/domain/use_cases/app_lock/app_lock_usecase.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Fournit une instance d'[AppLockViewModel].

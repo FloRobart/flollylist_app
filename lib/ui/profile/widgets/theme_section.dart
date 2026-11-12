@@ -1,6 +1,6 @@
-import 'package:flollylist_app/ui/core/themes/theme.dart';
-import 'package:flollylist_app/ui/core/themes/theme_controller.dart';
-import 'package:flollylist_app/ui/core/ui/widgets/card_container.dart';
+import 'package:hollylist_app/ui/core/themes/theme.dart';
+import 'package:hollylist_app/ui/core/themes/theme_controller.dart';
+import 'package:hollylist_app/ui/core/ui/widgets/card_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

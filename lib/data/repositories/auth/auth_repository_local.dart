@@ -1,4 +1,4 @@
-import 'package:flollylist_app/config/shared_preferences_keys.dart';
+import 'package:hollylist_app/config/shared_preferences_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthRepositoryLocal {

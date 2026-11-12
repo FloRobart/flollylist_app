@@ -1,7 +1,7 @@
-import 'package:flollylist_app/data/repositories/auth/auth_repository.dart';
-import 'package:flollylist_app/data/repositories/auth/auth_repository_local.dart';
-import 'package:flollylist_app/data/repositories/auth/auth_repository_remote.dart';
-import 'package:flollylist_app/data/services/auth/auth_manager.dart';
+import 'package:hollylist_app/data/repositories/auth/auth_repository.dart';
+import 'package:hollylist_app/data/repositories/auth/auth_repository_local.dart';
+import 'package:hollylist_app/data/repositories/auth/auth_repository_remote.dart';
+import 'package:hollylist_app/data/services/auth/auth_manager.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   const AuthRepositoryImpl({

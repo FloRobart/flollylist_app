@@ -1,4 +1,4 @@
-import 'package:flollylist_app/ui/core/ui/widgets/header.dart';
+import 'package:hollylist_app/ui/core/ui/widgets/header.dart';
 import 'package:flutter/material.dart';
 
 /// Squelette commun des écrans de l'application : en-tête, contenu rafraîchissable et bouton d'ajout.

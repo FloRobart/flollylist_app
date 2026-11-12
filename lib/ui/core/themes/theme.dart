@@ -5,7 +5,7 @@ enum AppFontSize { small, medium, large, xlarge, xxlarge }
 class AppTheme {
   AppTheme._();
 
-  /// Couleur principale de FlollyList : le rouge de Noël du logo.
+  /// Couleur principale de HollyList : le rouge de Noël du logo.
   static const Color primarySeed = Color(0xFF721414);
 
   /// Couleurs custom (faciles à changer)

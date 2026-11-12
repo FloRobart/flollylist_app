@@ -1,4 +1,4 @@
-import 'package:flollylist_app/ui/core/ui/forms/price_field.dart';
+import 'package:hollylist_app/ui/core/ui/forms/price_field.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

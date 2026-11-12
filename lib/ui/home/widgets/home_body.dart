@@ -1,10 +1,10 @@
-import 'package:flollylist_app/routing/routes.dart';
-import 'package:flollylist_app/ui/core/ui/widgets/empty_list_message.dart';
-import 'package:flollylist_app/ui/core/ui/widgets/section_title.dart';
-import 'package:flollylist_app/ui/home/view_models/home_body_viewmodel.dart';
-import 'package:flollylist_app/ui/home/widgets/christmas_summary_card.dart';
-import 'package:flollylist_app/ui/home/widgets/people_card.dart';
-import 'package:flollylist_app/ui/peoples/widgets/peoples_and_gifts_builder.dart';
+import 'package:hollylist_app/routing/routes.dart';
+import 'package:hollylist_app/ui/core/ui/widgets/empty_list_message.dart';
+import 'package:hollylist_app/ui/core/ui/widgets/section_title.dart';
+import 'package:hollylist_app/ui/home/view_models/home_body_viewmodel.dart';
+import 'package:hollylist_app/ui/home/widgets/christmas_summary_card.dart';
+import 'package:hollylist_app/ui/home/widgets/people_card.dart';
+import 'package:hollylist_app/ui/peoples/widgets/peoples_and_gifts_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

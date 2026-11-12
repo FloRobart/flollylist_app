@@ -1,7 +1,7 @@
-import 'package:flollylist_app/ui/core/ui/utils/error_message.dart';
-import 'package:flollylist_app/ui/core/ui/utils/show_message.dart';
-import 'package:flollylist_app/ui/gifts/view_models/gift_viewmodel.dart';
-import 'package:flollylist_app/ui/peoples/view_models/people_viewmodel.dart';
+import 'package:hollylist_app/ui/core/ui/utils/error_message.dart';
+import 'package:hollylist_app/ui/core/ui/utils/show_message.dart';
+import 'package:hollylist_app/ui/gifts/view_models/gift_viewmodel.dart';
+import 'package:hollylist_app/ui/peoples/view_models/people_viewmodel.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

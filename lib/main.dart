@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:flollylist_app/app.dart';
-import 'package:flollylist_app/config/app_config.dart';
-import 'package:flollylist_app/data/services/storage/legacy_storage_cleaner.dart';
+import 'package:hollylist_app/app.dart';
+import 'package:hollylist_app/config/app_config.dart';
+import 'package:hollylist_app/data/services/storage/legacy_storage_cleaner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

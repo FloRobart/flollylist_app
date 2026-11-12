@@ -1,4 +1,4 @@
-import 'package:flollylist_app/ui/core/ui/widgets/card_container.dart';
+import 'package:hollylist_app/ui/core/ui/widgets/card_container.dart';
 import 'package:flutter/material.dart';
 
 /// Section du code de l'application : le changer, ou verrouiller tout de suite.

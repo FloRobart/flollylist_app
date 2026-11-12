@@ -1,5 +1,5 @@
-import 'package:flollylist_app/data/repositories/app_lock/app_lock_repository.dart';
-import 'package:flollylist_app/data/services/app_lock/app_lock_code_hasher.dart';
+import 'package:hollylist_app/data/repositories/app_lock/app_lock_repository.dart';
+import 'package:hollylist_app/data/services/app_lock/app_lock_code_hasher.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Les états possibles du verrouillage de l'application.

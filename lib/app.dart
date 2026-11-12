@@ -1,7 +1,7 @@
-import 'package:flollylist_app/config/app_config.dart';
-import 'package:flollylist_app/routing/router.dart';
-import 'package:flollylist_app/ui/core/themes/theme.dart';
-import 'package:flollylist_app/ui/core/themes/theme_controller.dart';
+import 'package:hollylist_app/config/app_config.dart';
+import 'package:hollylist_app/routing/router.dart';
+import 'package:hollylist_app/ui/core/themes/theme.dart';
+import 'package:hollylist_app/ui/core/themes/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

@@ -1,6 +1,6 @@
-import 'package:flollylist_app/data/models/peoples/people_dto.dart';
-import 'package:flollylist_app/domain/models/peoples/people.dart';
-import 'package:flollylist_app/utils/iso_date.dart';
+import 'package:hollylist_app/data/models/peoples/people_dto.dart';
+import 'package:hollylist_app/domain/models/peoples/people.dart';
+import 'package:hollylist_app/utils/iso_date.dart';
 
 extension PeopleDtoMapper on PeopleDto {
   People toDomain() {

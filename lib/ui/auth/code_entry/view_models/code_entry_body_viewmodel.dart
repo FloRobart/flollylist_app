@@ -1,4 +1,4 @@
-import 'package:flollylist_app/domain/use_cases/auth/code_entry/code_entry_usecase.dart';
+import 'package:hollylist_app/domain/use_cases/auth/code_entry/code_entry_usecase.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

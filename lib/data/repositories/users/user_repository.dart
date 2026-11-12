@@ -1,8 +1,8 @@
-import 'package:flollylist_app/data/repositories/users/user_repository_impl.dart';
-import 'package:flollylist_app/data/repositories/users/user_repository_remote.dart';
-import 'package:flollylist_app/data/services/api/users/user_api_client.dart';
-import 'package:flollylist_app/data/services/auth/auth_manager.dart';
-import 'package:flollylist_app/domain/models/users/user.dart';
+import 'package:hollylist_app/data/repositories/users/user_repository_impl.dart';
+import 'package:hollylist_app/data/repositories/users/user_repository_remote.dart';
+import 'package:hollylist_app/data/services/api/users/user_api_client.dart';
+import 'package:hollylist_app/data/services/auth/auth_manager.dart';
+import 'package:hollylist_app/domain/models/users/user.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Fournit une instance d'[UserRepository].

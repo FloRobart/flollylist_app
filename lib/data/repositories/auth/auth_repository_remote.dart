@@ -1,4 +1,4 @@
-import 'package:flollylist_app/data/services/api/auth/auth_api_client.dart';
+import 'package:hollylist_app/data/services/api/auth/auth_api_client.dart';
 
 class AuthRepositoryRemote {
   const AuthRepositoryRemote({required this.authApiClient});

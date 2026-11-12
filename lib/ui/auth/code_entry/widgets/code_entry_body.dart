@@ -1,8 +1,8 @@
-import 'package:flollylist_app/config/constantes.dart';
-import 'package:flollylist_app/routing/routes.dart';
-import 'package:flollylist_app/ui/auth/code_entry/view_models/code_entry_body_viewmodel.dart';
-import 'package:flollylist_app/ui/core/ui/forms/submit_button.dart';
-import 'package:flollylist_app/ui/core/ui/utils/show_message.dart';
+import 'package:hollylist_app/config/constantes.dart';
+import 'package:hollylist_app/routing/routes.dart';
+import 'package:hollylist_app/ui/auth/code_entry/view_models/code_entry_body_viewmodel.dart';
+import 'package:hollylist_app/ui/core/ui/forms/submit_button.dart';
+import 'package:hollylist_app/ui/core/ui/utils/show_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

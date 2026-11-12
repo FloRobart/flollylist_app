@@ -1,6 +1,6 @@
-import 'package:flollylist_app/domain/models/gifts/gift.dart';
-import 'package:flollylist_app/domain/models/peoples/people.dart';
-import 'package:flollylist_app/ui/gifts/view_models/gifts_by_year.dart';
+import 'package:hollylist_app/domain/models/gifts/gift.dart';
+import 'package:hollylist_app/domain/models/peoples/people.dart';
+import 'package:hollylist_app/ui/gifts/view_models/gifts_by_year.dart';
 
 /// Calculs de la page d'accueil : les proches triés, et les cadeaux de l'année de chacun.
 class HomeBodyViewmodel {

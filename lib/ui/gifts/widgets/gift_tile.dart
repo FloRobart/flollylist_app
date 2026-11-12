@@ -1,5 +1,5 @@
-import 'package:flollylist_app/domain/models/gifts/gift.dart';
-import 'package:flollylist_app/ui/core/ui/utils/format_price.dart';
+import 'package:hollylist_app/domain/models/gifts/gift.dart';
+import 'package:hollylist_app/ui/core/ui/utils/format_price.dart';
 import 'package:flutter/material.dart';
 
 /// Un cadeau dans la liste d'un proche. Un appui ouvre ses détails.

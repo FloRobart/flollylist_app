@@ -1,7 +1,7 @@
-import 'package:flollylist_app/domain/models/peoples/people.dart';
-import 'package:flollylist_app/ui/core/ui/utils/format_price.dart';
-import 'package:flollylist_app/ui/core/ui/utils/pluralize.dart';
-import 'package:flollylist_app/ui/peoples/widgets/people_avatar.dart';
+import 'package:hollylist_app/domain/models/peoples/people.dart';
+import 'package:hollylist_app/ui/core/ui/utils/format_price.dart';
+import 'package:hollylist_app/ui/core/ui/utils/pluralize.dart';
+import 'package:hollylist_app/ui/peoples/widgets/people_avatar.dart';
 import 'package:flutter/material.dart';
 
 /// Un proche dans la liste de l'accueil : ses cadeaux de l'année et leur prix total.

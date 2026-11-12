@@ -1,6 +1,6 @@
-import 'package:flollylist_app/data/repositories/users/user_repository.dart';
-import 'package:flollylist_app/data/services/app_lock/app_lock_manager.dart';
-import 'package:flollylist_app/domain/models/users/user.dart';
+import 'package:hollylist_app/data/repositories/users/user_repository.dart';
+import 'package:hollylist_app/data/services/app_lock/app_lock_manager.dart';
+import 'package:hollylist_app/domain/models/users/user.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// UseCase provider pour l'écran de profil.

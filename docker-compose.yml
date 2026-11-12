@@ -1,12 +1,12 @@
 # Production only: the application is exclusively reachable through Traefik, no port is published.
 
 services:
-  flollylist-app:
-    image: florobart/flollylist-app:${APP_VERSION:-latest}
+  hollylist-app:
+    image: florobart/hollylist-app:${APP_VERSION:-latest}
     restart: always
 
     # No Docker healthcheck: the image has no shell nor HTTP client.
-    # Traefik checks the application over HTTP instead (dynamic/routes.yml of flollylist-proxy).
+    # Traefik checks the application over HTTP instead (dynamic/routes.yml of hollylist-proxy).
 
     # Least privileges
     user: "65532:65532"
@@ -44,10 +44,10 @@ services:
           create_host_path: false
 
     networks:
-      - flollylist-app-net
+      - hollylist-app-net
 
 networks:
   # No access to the outside: this container only serves static files to Traefik
-  flollylist-app-net:
-    name: flollylist-app-net
+  hollylist-app-net:
+    name: hollylist-app-net
     internal: true

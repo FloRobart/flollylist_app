@@ -1,4 +1,4 @@
-import 'package:flollylist_app/data/services/app_lock/app_lock_code_hasher.dart';
+import 'package:hollylist_app/data/services/app_lock/app_lock_code_hasher.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

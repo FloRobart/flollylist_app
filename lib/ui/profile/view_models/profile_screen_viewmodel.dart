@@ -1,5 +1,5 @@
-import 'package:flollylist_app/domain/models/users/user.dart';
-import 'package:flollylist_app/domain/use_cases/users/profile_screen_usecase.dart';
+import 'package:hollylist_app/domain/models/users/user.dart';
+import 'package:hollylist_app/domain/use_cases/users/profile_screen_usecase.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Provider pour le ViewModel de l'écran de profil.

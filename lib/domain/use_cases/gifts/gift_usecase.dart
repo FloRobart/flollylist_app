@@ -1,6 +1,6 @@
-import 'package:flollylist_app/data/repositories/gifts/gift_repository.dart';
-import 'package:flollylist_app/domain/models/gifts/gift.dart';
-import 'package:flollylist_app/domain/models/gifts/upsert/gift_upsert.dart';
+import 'package:hollylist_app/data/repositories/gifts/gift_repository.dart';
+import 'package:hollylist_app/domain/models/gifts/gift.dart';
+import 'package:hollylist_app/domain/models/gifts/upsert/gift_upsert.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Fournit une instance de [GiftUseCase].

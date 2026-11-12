@@ -1,8 +1,8 @@
-import 'package:flollylist_app/data/services/auth/auth_manager.dart';
-import 'package:flollylist_app/domain/models/peoples/people.dart';
-import 'package:flollylist_app/domain/models/peoples/upsert/people_upsert.dart';
-import 'package:flollylist_app/domain/use_cases/peoples/people_usecase.dart';
-import 'package:flollylist_app/ui/gifts/view_models/gift_viewmodel.dart';
+import 'package:hollylist_app/data/services/auth/auth_manager.dart';
+import 'package:hollylist_app/domain/models/peoples/people.dart';
+import 'package:hollylist_app/domain/models/peoples/upsert/people_upsert.dart';
+import 'package:hollylist_app/domain/use_cases/peoples/people_usecase.dart';
+import 'package:hollylist_app/ui/gifts/view_models/gift_viewmodel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Provider d'état asynchrone des proches de l'utilisateur.

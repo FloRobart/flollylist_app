@@ -1,4 +1,4 @@
-/// Constantes de l'application. Les limites reprennent celles de l'API (flollylist-api), pour
+/// Constantes de l'application. Les limites reprennent celles de l'API (hollylist-api), pour
 /// qu'un formulaire refuse ce que l'API refuserait.
 class Constantes {
   /* People */

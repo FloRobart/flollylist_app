@@ -1,8 +1,8 @@
-import 'package:flollylist_app/ui/core/themes/theme.dart';
-import 'package:flollylist_app/ui/core/ui/utils/format_price.dart';
-import 'package:flollylist_app/ui/core/ui/utils/pluralize.dart';
-import 'package:flollylist_app/ui/core/ui/widgets/card_container.dart';
-import 'package:flollylist_app/ui/home/view_models/home_body_viewmodel.dart';
+import 'package:hollylist_app/ui/core/themes/theme.dart';
+import 'package:hollylist_app/ui/core/ui/utils/format_price.dart';
+import 'package:hollylist_app/ui/core/ui/utils/pluralize.dart';
+import 'package:hollylist_app/ui/core/ui/widgets/card_container.dart';
+import 'package:hollylist_app/ui/home/view_models/home_body_viewmodel.dart';
 import 'package:flutter/material.dart';
 
 /// Résumé des cadeaux de Noël de l'année : le budget total, et les proches encore sans cadeau.

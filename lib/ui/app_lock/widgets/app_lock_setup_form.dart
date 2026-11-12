@@ -1,6 +1,6 @@
-import 'package:flollylist_app/ui/app_lock/view_models/app_lock_viewmodel.dart';
-import 'package:flollylist_app/ui/app_lock/widgets/app_lock_code_field.dart';
-import 'package:flollylist_app/ui/core/ui/forms/submit_button.dart';
+import 'package:hollylist_app/ui/app_lock/view_models/app_lock_viewmodel.dart';
+import 'package:hollylist_app/ui/app_lock/widgets/app_lock_code_field.dart';
+import 'package:hollylist_app/ui/core/ui/forms/submit_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -48,7 +48,7 @@ class _AppLockSetupFormState extends ConsumerState<AppLockSetupForm> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Text(
-            'Ce code vous sera demandé à chaque ouverture de FlollyList, pour que vos proches ne découvrent pas leurs cadeaux sur votre appareil.',
+            'Ce code vous sera demandé à chaque ouverture de HollyList, pour que vos proches ne découvrent pas leurs cadeaux sur votre appareil.',
             textAlign: TextAlign.center,
           ),
 

@@ -1,6 +1,6 @@
-import 'package:flollylist_app/data/models/peoples/upsert/people_upsert_dto.dart';
-import 'package:flollylist_app/domain/models/peoples/upsert/people_upsert.dart';
-import 'package:flollylist_app/utils/iso_date.dart';
+import 'package:hollylist_app/data/models/peoples/upsert/people_upsert_dto.dart';
+import 'package:hollylist_app/domain/models/peoples/upsert/people_upsert.dart';
+import 'package:hollylist_app/utils/iso_date.dart';
 
 extension PeopleUpsertMapper on PeopleUpsert {
   PeopleUpsertDto toDto() {

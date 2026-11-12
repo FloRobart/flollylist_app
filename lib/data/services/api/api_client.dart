@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flollylist_app/data/services/auth/auth_manager.dart';
-import 'package:flollylist_app/data/services/interceptors/auth_interceptor.dart';
+import 'package:hollylist_app/data/services/auth/auth_manager.dart';
+import 'package:hollylist_app/data/services/interceptors/auth_interceptor.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

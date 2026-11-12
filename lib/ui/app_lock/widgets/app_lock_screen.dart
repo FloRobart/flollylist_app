@@ -1,7 +1,7 @@
-import 'package:flollylist_app/data/services/app_lock/app_lock_manager.dart';
-import 'package:flollylist_app/ui/app_lock/widgets/app_lock_setup_form.dart';
-import 'package:flollylist_app/ui/app_lock/widgets/app_lock_unlock_form.dart';
-import 'package:flollylist_app/ui/auth/widgets/auth_base.dart';
+import 'package:hollylist_app/data/services/app_lock/app_lock_manager.dart';
+import 'package:hollylist_app/ui/app_lock/widgets/app_lock_setup_form.dart';
+import 'package:hollylist_app/ui/app_lock/widgets/app_lock_unlock_form.dart';
+import 'package:hollylist_app/ui/auth/widgets/auth_base.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,7 +21,7 @@ class AppLockScreen extends ConsumerWidget {
     }
 
     return const AuthBase(
-      title: 'FlollyList est verrouillé',
+      title: 'HollyList est verrouillé',
       body: AppLockUnlockForm(),
     );
   }

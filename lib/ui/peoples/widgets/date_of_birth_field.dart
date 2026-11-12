@@ -1,5 +1,5 @@
-import 'package:flollylist_app/config/constantes.dart';
-import 'package:flollylist_app/ui/core/ui/utils/format_date.dart';
+import 'package:hollylist_app/config/constantes.dart';
+import 'package:hollylist_app/ui/core/ui/utils/format_date.dart';
 import 'package:flutter/material.dart';
 
 /// Champ facultatif de la date de naissance, choisie dans un calendrier et effaçable.

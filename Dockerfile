@@ -1,4 +1,4 @@
-# Production image of the FlollyList web application.
+# Production image of the HollyList web application.
 # Base images are pinned by digest so that a compromised tag cannot silently change the build.
 # Pulling from dhi.io requires "docker login dhi.io" with a Docker Hub account.
 #

@@ -1,4 +1,4 @@
-import 'package:flollylist_app/ui/core/ui/utils/error_message.dart';
+import 'package:hollylist_app/ui/core/ui/utils/error_message.dart';
 import 'package:flutter/material.dart';
 
 /// Message d'erreur avec un bouton pour réessayer le chargement.

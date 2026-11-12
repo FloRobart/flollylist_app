@@ -5,20 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flollylist_app",
+            "name": "hollylist_app",
             "request": "launch",
             "type": "dart",
             "args": ["--dart-define-from-file", "${workspaceFolder}/.env"]
         },
         {
-            "name": "flollylist_app (profile mode)",
+            "name": "hollylist_app (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
             "args": ["--dart-define-from-file", "${workspaceFolder}/.env"]
         },
         {
-            "name": "flollylist_app (release mode)",
+            "name": "hollylist_app (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release",

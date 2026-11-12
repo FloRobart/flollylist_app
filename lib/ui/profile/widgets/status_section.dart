@@ -1,7 +1,7 @@
-import 'package:flollylist_app/ui/core/themes/theme.dart';
-import 'package:flollylist_app/ui/core/ui/utils/format_date.dart';
-import 'package:flollylist_app/ui/core/ui/utils/pluralize.dart';
-import 'package:flollylist_app/ui/core/ui/widgets/card_container.dart';
+import 'package:hollylist_app/ui/core/themes/theme.dart';
+import 'package:hollylist_app/ui/core/ui/utils/format_date.dart';
+import 'package:hollylist_app/ui/core/ui/utils/pluralize.dart';
+import 'package:hollylist_app/ui/core/ui/widgets/card_container.dart';
 import 'package:flutter/material.dart';
 
 class StatusSection extends StatelessWidget {

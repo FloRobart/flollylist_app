@@ -1,6 +1,6 @@
-import 'package:flollylist_app/ui/auth/login/widgets/login_body.dart';
-import 'package:flollylist_app/ui/auth/login/widgets/login_header.dart';
-import 'package:flollylist_app/ui/auth/widgets/auth_base.dart';
+import 'package:hollylist_app/ui/auth/login/widgets/login_body.dart';
+import 'package:hollylist_app/ui/auth/login/widgets/login_header.dart';
+import 'package:hollylist_app/ui/auth/widgets/auth_base.dart';
 import 'package:flutter/material.dart';
 
 /// Écran d'authentification affichant le formulaire de connexion et d'inscription.

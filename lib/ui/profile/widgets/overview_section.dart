@@ -1,6 +1,6 @@
-import 'package:flollylist_app/config/constantes.dart';
-import 'package:flollylist_app/ui/core/ui/utils/show_message.dart';
-import 'package:flollylist_app/ui/core/ui/widgets/card_container.dart';
+import 'package:hollylist_app/config/constantes.dart';
+import 'package:hollylist_app/ui/core/ui/utils/show_message.dart';
+import 'package:hollylist_app/ui/core/ui/widgets/card_container.dart';
 import 'package:flutter/material.dart';
 
 /// Section d'aperçu du profil, affichant des informations générales sur l'utilisateur.

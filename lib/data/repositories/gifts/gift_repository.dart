@@ -1,8 +1,8 @@
-import 'package:flollylist_app/data/repositories/gifts/gift_repository_impl.dart';
-import 'package:flollylist_app/data/repositories/gifts/gift_repository_remote.dart';
-import 'package:flollylist_app/data/services/api/gifts/gift_api_client.dart';
-import 'package:flollylist_app/domain/models/gifts/gift.dart';
-import 'package:flollylist_app/domain/models/gifts/upsert/gift_upsert.dart';
+import 'package:hollylist_app/data/repositories/gifts/gift_repository_impl.dart';
+import 'package:hollylist_app/data/repositories/gifts/gift_repository_remote.dart';
+import 'package:hollylist_app/data/services/api/gifts/gift_api_client.dart';
+import 'package:hollylist_app/domain/models/gifts/gift.dart';
+import 'package:hollylist_app/domain/models/gifts/upsert/gift_upsert.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Fournit une instance de [GiftRepository].

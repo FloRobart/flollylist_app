@@ -1,4 +1,4 @@
-import 'package:flollylist_app/ui/home/view_models/home_body_viewmodel.dart';
+import 'package:hollylist_app/ui/home/view_models/home_body_viewmodel.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../test_data.dart';

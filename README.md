@@ -1,8 +1,8 @@
-# FlollyList — Application
+# HollyList — Application
 
-FlollyList est l'application qui permet de gérer facilement les cadeaux de Noël de ses proches : pour chacun, les cadeaux de chaque année, leur prix, une description et un lien. L'accueil montre le budget de Noël de l'année, et en rouge les proches qui n'ont pas encore de cadeau.
+HollyList est l'application qui permet de gérer facilement les cadeaux de Noël de ses proches : pour chacun, les cadeaux de chaque année, leur prix, une description et un lien. L'accueil montre le budget de Noël de l'année, et en rouge les proches qui n'ont pas encore de cadeau.
 
-Elle fonctionne sur le web (image Docker servie par nginx) et sur Android. Les données viennent de `flollylist-api`, et la connexion de [Floraccess](https://github.com/FloRobart/FlorAccess_server).
+Elle fonctionne sur le web (image Docker servie par nginx) et sur Android. Les données viennent de `hollylist-api`, et la connexion de [Floraccess](https://github.com/FloRobart/FlorAccess_server).
 
 # Table des matières
 
@@ -52,7 +52,7 @@ Variables supportées :
 
 - `APP_NAME`
 - `AUTH_URL` : l'API de Floraccess
-- `DATA_URL` : `flollylist-api`
+- `DATA_URL` : `hollylist-api`
 - `LOCALIZATION`
 
 ⚠️ Le `.env` est servi par nginx à tous les visiteurs : il ne doit jamais contenir de secret.
@@ -67,11 +67,11 @@ flutter build apk --dart-define-from-file=.env
 
 Le fichier `.env` est lu au démarrage (requête sur `/assets/.env`) et permet de changer les URL sans recompiler le code Dart.
 
-En production, le navigateur ne peut appeler que les adresses listées dans le `connect-src` de `nginx.conf` (`https://api.flollylist.florobart.fr` et `https://api.floraccess.florobart.fr`). Une nouvelle adresse doit donc aussi y être ajoutée, puis publiée avec une nouvelle image. En local, `http://localhost` est toujours autorisé.
+En production, le navigateur ne peut appeler que les adresses listées dans le `connect-src` de `nginx.conf` (`https://api.hollylist.florobart.fr` et `https://api.floraccess.florobart.fr`). Une nouvelle adresse doit donc aussi y être ajoutée, puis publiée avec une nouvelle image. En local, `http://localhost` est toujours autorisé.
 
 # Développement
 
-1. Démarrer la base et l'API (voir les README de `flollylist-database` et de `flollylist-api`), ainsi que Floraccess sur le port `26001`.
+1. Démarrer la base et l'API (voir les README de `hollylist-database` et de `hollylist-api`), ainsi que Floraccess sur le port `26001`.
 2. Créer le fichier d'environnement :
 
     ```bash
@@ -100,10 +100,10 @@ flutter analyze
 flutter test
 ```
 
-La CI ([Github-ci](https://github.com/FloRobart/github-ci), type « Flutter ») lance ces trois contrôles sur chaque pull request, puis construit l'APK de debug et l'image Docker. Elle installe Flutter **3.47.9**, la version fixée dans `pubspec.yaml` : le `pubspec.lock` doit être généré avec cette version. À chaque merge sur `main`, elle publie l'image `florobart/flollylist-app` (`<version>` et `latest`) et l'APK dans la GitHub Release.
+La CI ([Github-ci](https://github.com/FloRobart/github-ci), type « Flutter ») lance ces trois contrôles sur chaque pull request, puis construit l'APK de debug et l'image Docker. Elle installe Flutter **3.47.9**, la version fixée dans `pubspec.yaml` : le `pubspec.lock` doit être généré avec cette version. À chaque merge sur `main`, elle publie l'image `florobart/hollylist-app` (`<version>` et `latest`) et l'APK dans la GitHub Release.
 
 # Production
 
-L'application est déployée par `flollylist-wrapper`, avec l'API, la base et Traefik : voir son README. Le [docker-compose.yml](docker-compose.yml) de ce dépôt est celui de production : nginx durci (`dhi.io`, sans shell, utilisateur non-root, système de fichiers en lecture seule), aucun port publié, et le `.env` de la machine monté en lecture seule sur `/assets/.env`.
+L'application est déployée par `hollylist-wrapper`, avec l'API, la base et Traefik : voir son README. Le [docker-compose.yml](docker-compose.yml) de ce dépôt est celui de production : nginx durci (`dhi.io`, sans shell, utilisateur non-root, système de fichiers en lecture seule), aucun port publié, et le `.env` de la machine monté en lecture seule sur `/assets/.env`.
 
 L'image n'utilise aucun CDN (`--no-web-resources-cdn`) et embarque la police Roboto : la Content-Security-Policy de `nginx.conf` n'autorise que les scripts et les polices de l'application elle-même.

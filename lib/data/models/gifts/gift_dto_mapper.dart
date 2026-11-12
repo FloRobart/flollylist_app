@@ -1,5 +1,5 @@
-import 'package:flollylist_app/data/models/gifts/gift_dto.dart';
-import 'package:flollylist_app/domain/models/gifts/gift.dart';
+import 'package:hollylist_app/data/models/gifts/gift_dto.dart';
+import 'package:hollylist_app/domain/models/gifts/gift.dart';
 
 extension GiftDtoMapper on GiftDto {
   Gift toDomain() {

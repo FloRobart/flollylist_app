@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flollylist_app/data/services/auth/jwt_payload.dart';
+import 'package:hollylist_app/data/services/auth/jwt_payload.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// Builds an unsigned JWT with the given claims: the application never checks the signature.
@@ -18,17 +18,17 @@ void main() {
   group('JwtPayload', () {
     test('Reads the email and the time left before the expiration', () {
       final payload = JwtPayload.tryParse(
-        buildJwt({'email': 'user@flollylist.fr', 'exp': nowInSeconds + 60}),
+        buildJwt({'email': 'user@hollylist.fr', 'exp': nowInSeconds + 60}),
       );
 
       expect(payload, isNotNull);
-      expect(payload!.email, 'user@flollylist.fr');
+      expect(payload!.email, 'user@hollylist.fr');
       expect(payload.secondsBeforeExpiration(now: now), 60);
     });
 
     test('Considers a token without expiration as expired', () {
       final payload = JwtPayload.tryParse(
-        buildJwt({'email': 'user@flollylist.fr'}),
+        buildJwt({'email': 'user@hollylist.fr'}),
       );
 
       expect(payload!.secondsBeforeExpiration(now: now), 0);

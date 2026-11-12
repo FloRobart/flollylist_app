@@ -1,11 +1,11 @@
-import 'package:flollylist_app/config/assets.dart';
+import 'package:hollylist_app/config/assets.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 /// Configuration values given at compile time with `--dart-define`, or their fallbacks.
 abstract class CompiledAppConfig {
-  static const String fallbackAppName = 'FlollyList';
+  static const String fallbackAppName = 'HollyList';
   static const String fallbackAuthUrl = 'http://localhost:26001';
   static const String fallbackDataUrl = 'http://localhost:26005';
   static const String fallbackLocalization = 'fr_FR';

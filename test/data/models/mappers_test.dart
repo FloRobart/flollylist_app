@@ -1,11 +1,11 @@
-import 'package:flollylist_app/data/models/gifts/gift_dto.dart';
-import 'package:flollylist_app/data/models/gifts/gift_dto_mapper.dart';
-import 'package:flollylist_app/data/models/peoples/people_dto.dart';
-import 'package:flollylist_app/data/models/peoples/people_dto_mapper.dart';
-import 'package:flollylist_app/domain/models/gifts/upsert/gift_upsert.dart';
-import 'package:flollylist_app/domain/models/gifts/upsert/gift_upsert_mapper.dart';
-import 'package:flollylist_app/domain/models/peoples/upsert/people_upsert.dart';
-import 'package:flollylist_app/domain/models/peoples/upsert/people_upsert_mapper.dart';
+import 'package:hollylist_app/data/models/gifts/gift_dto.dart';
+import 'package:hollylist_app/data/models/gifts/gift_dto_mapper.dart';
+import 'package:hollylist_app/data/models/peoples/people_dto.dart';
+import 'package:hollylist_app/data/models/peoples/people_dto_mapper.dart';
+import 'package:hollylist_app/domain/models/gifts/upsert/gift_upsert.dart';
+import 'package:hollylist_app/domain/models/gifts/upsert/gift_upsert_mapper.dart';
+import 'package:hollylist_app/domain/models/peoples/upsert/people_upsert.dart';
+import 'package:hollylist_app/domain/models/peoples/upsert/people_upsert_mapper.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

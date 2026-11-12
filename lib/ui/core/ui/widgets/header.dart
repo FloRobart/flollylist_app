@@ -1,8 +1,8 @@
-import 'package:flollylist_app/config/app_config.dart';
-import 'package:flollylist_app/config/assets.dart';
-import 'package:flollylist_app/domain/use_cases/app_lock/app_lock_usecase.dart';
-import 'package:flollylist_app/routing/routes.dart';
-import 'package:flollylist_app/ui/core/themes/theme.dart';
+import 'package:hollylist_app/config/app_config.dart';
+import 'package:hollylist_app/config/assets.dart';
+import 'package:hollylist_app/domain/use_cases/app_lock/app_lock_usecase.dart';
+import 'package:hollylist_app/routing/routes.dart';
+import 'package:hollylist_app/ui/core/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -67,7 +67,7 @@ class Header extends ConsumerWidget implements PreferredSizeWidget {
         /// Verrouille l'application, avant de prêter l'appareil par exemple
         IconButton(
           onPressed: () => ref.read(appLockUseCaseProvider).lock(),
-          tooltip: 'Verrouiller FlollyList',
+          tooltip: 'Verrouiller HollyList',
           icon: const Icon(Icons.lock_outline),
         ),
 

@@ -1,4 +1,4 @@
-import 'package:flollylist_app/config/app_config.dart';
+import 'package:hollylist_app/config/app_config.dart';
 import 'package:intl/intl.dart';
 
 /// Formate un prix avec la devise de la configuration, par exemple « 24,99 € ».

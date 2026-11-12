@@ -1,8 +1,8 @@
-import 'package:flollylist_app/data/repositories/auth/auth_repository_impl.dart';
-import 'package:flollylist_app/data/repositories/auth/auth_repository_local.dart';
-import 'package:flollylist_app/data/repositories/auth/auth_repository_remote.dart';
-import 'package:flollylist_app/data/services/api/auth/auth_api_client.dart';
-import 'package:flollylist_app/data/services/auth/auth_manager.dart';
+import 'package:hollylist_app/data/repositories/auth/auth_repository_impl.dart';
+import 'package:hollylist_app/data/repositories/auth/auth_repository_local.dart';
+import 'package:hollylist_app/data/repositories/auth/auth_repository_remote.dart';
+import 'package:hollylist_app/data/services/api/auth/auth_api_client.dart';
+import 'package:hollylist_app/data/services/auth/auth_manager.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Fournit une instance d'[AuthRepository].

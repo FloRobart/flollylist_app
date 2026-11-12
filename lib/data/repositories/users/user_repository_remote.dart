@@ -1,6 +1,6 @@
-import 'package:flollylist_app/data/models/users/user_dto.dart';
-import 'package:flollylist_app/data/services/api/users/user_api_client.dart';
-import 'package:flollylist_app/data/services/auth/auth_manager.dart';
+import 'package:hollylist_app/data/models/users/user_dto.dart';
+import 'package:hollylist_app/data/services/api/users/user_api_client.dart';
+import 'package:hollylist_app/data/services/auth/auth_manager.dart';
 
 class UserRepositoryRemote {
   UserRepositoryRemote({

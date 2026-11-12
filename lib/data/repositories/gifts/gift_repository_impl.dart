@@ -1,9 +1,9 @@
-import 'package:flollylist_app/data/models/gifts/gift_dto_mapper.dart';
-import 'package:flollylist_app/data/repositories/gifts/gift_repository.dart';
-import 'package:flollylist_app/data/repositories/gifts/gift_repository_remote.dart';
-import 'package:flollylist_app/domain/models/gifts/gift.dart';
-import 'package:flollylist_app/domain/models/gifts/upsert/gift_upsert.dart';
-import 'package:flollylist_app/domain/models/gifts/upsert/gift_upsert_mapper.dart';
+import 'package:hollylist_app/data/models/gifts/gift_dto_mapper.dart';
+import 'package:hollylist_app/data/repositories/gifts/gift_repository.dart';
+import 'package:hollylist_app/data/repositories/gifts/gift_repository_remote.dart';
+import 'package:hollylist_app/domain/models/gifts/gift.dart';
+import 'package:hollylist_app/domain/models/gifts/upsert/gift_upsert.dart';
+import 'package:hollylist_app/domain/models/gifts/upsert/gift_upsert_mapper.dart';
 
 /// Converts the gifts between the format of the API and the one of the application.
 /// Nothing is kept on the device: the gifts must stay out of reach of the other users of the device.

@@ -1,5 +1,5 @@
-import 'package:flollylist_app/ui/app_lock/view_models/app_lock_viewmodel.dart';
-import 'package:flollylist_app/ui/app_lock/widgets/app_lock_code_field.dart';
+import 'package:hollylist_app/ui/app_lock/view_models/app_lock_viewmodel.dart';
+import 'package:hollylist_app/ui/app_lock/widgets/app_lock_code_field.dart';
 import 'package:flutter/material.dart';
 
 /// Demande un nouveau code de verrouillage, saisi deux fois.

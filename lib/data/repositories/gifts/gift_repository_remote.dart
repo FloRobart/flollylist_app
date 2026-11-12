@@ -1,6 +1,6 @@
-import 'package:flollylist_app/data/models/gifts/gift_dto.dart';
-import 'package:flollylist_app/data/models/gifts/upsert/gift_upsert_dto.dart';
-import 'package:flollylist_app/data/services/api/gifts/gift_api_client.dart';
+import 'package:hollylist_app/data/models/gifts/gift_dto.dart';
+import 'package:hollylist_app/data/models/gifts/upsert/gift_upsert_dto.dart';
+import 'package:hollylist_app/data/services/api/gifts/gift_api_client.dart';
 
 class GiftRepositoryRemote {
   const GiftRepositoryRemote({required this.giftApiClient});

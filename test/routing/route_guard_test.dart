@@ -1,7 +1,7 @@
-import 'package:flollylist_app/data/services/app_lock/app_lock_manager.dart';
-import 'package:flollylist_app/data/services/auth/auth_manager.dart';
-import 'package:flollylist_app/routing/route_guard.dart';
-import 'package:flollylist_app/routing/routes.dart';
+import 'package:hollylist_app/data/services/app_lock/app_lock_manager.dart';
+import 'package:hollylist_app/data/services/auth/auth_manager.dart';
+import 'package:hollylist_app/routing/route_guard.dart';
+import 'package:hollylist_app/routing/routes.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

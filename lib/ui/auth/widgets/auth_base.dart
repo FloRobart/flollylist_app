@@ -1,5 +1,5 @@
-import 'package:flollylist_app/config/app_config.dart';
-import 'package:flollylist_app/config/assets.dart';
+import 'package:hollylist_app/config/app_config.dart';
+import 'package:hollylist_app/config/assets.dart';
 import 'package:flutter/material.dart';
 
 /// Cadre commun des écrans d'accès à l'application : connexion, code reçu par email et verrouillage.
@@ -8,7 +8,7 @@ class AuthBase extends StatelessWidget {
 
   final Widget body;
 
-  /// Titre sous le logo. Par défaut : « Bienvenue sur FlollyList ».
+  /// Titre sous le logo. Par défaut : « Bienvenue sur HollyList ».
   final String? title;
 
   @override

@@ -1,6 +1,6 @@
-import 'package:flollylist_app/data/models/peoples/people_dto.dart';
-import 'package:flollylist_app/data/models/peoples/upsert/people_upsert_dto.dart';
-import 'package:flollylist_app/data/services/api/peoples/people_api_client.dart';
+import 'package:hollylist_app/data/models/peoples/people_dto.dart';
+import 'package:hollylist_app/data/models/peoples/upsert/people_upsert_dto.dart';
+import 'package:hollylist_app/data/services/api/peoples/people_api_client.dart';
 
 class PeopleRepositoryRemote {
   const PeopleRepositoryRemote({required this.peopleApiClient});
