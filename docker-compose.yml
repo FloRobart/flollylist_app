@@ -1,0 +1,53 @@
+# Production only: the application is exclusively reachable through Traefik, no port is published.
+
+services:
+  hollylist-app:
+    image: florobart/hollylist-app:${APP_VERSION:-latest}
+    restart: always
+
+    # No Docker healthcheck: the image has no shell nor HTTP client.
+    # Traefik checks the application over HTTP instead (dynamic/routes.yml of hollylist-proxy).
+
+    # Least privileges
+    user: "65532:65532"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    ipc: none
+
+    # Resource limits, so that this container cannot starve the other ones of the host
+    mem_limit: 128m
+    memswap_limit: 128m
+    cpus: 0.5
+    pids_limit: 64
+
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+
+    # The only writable paths nginx needs: not executable, and limited in size
+    tmpfs:
+      - /run/nginx:size=64k,mode=0700,uid=65532,gid=65532,noexec,nosuid,nodev
+      - /var/cache/nginx:size=1m,mode=0700,uid=65532,gid=65532,noexec,nosuid,nodev
+
+    # This file is public: it must never contain a secret
+    volumes:
+      - type: bind
+        source: ./.env
+        target: /usr/share/nginx/html/assets/.env
+        read_only: true
+        bind:
+          create_host_path: false
+
+    networks:
+      - hollylist-app-net
+
+networks:
+  # No access to the outside: this container only serves static files to Traefik
+  hollylist-app-net:
+    name: hollylist-app-net
+    internal: true
